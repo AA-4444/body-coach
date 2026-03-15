@@ -10,12 +10,7 @@ const navLinks = [
   { label: "SUPPORT", to: "/support" },
 ];
 
-const appLinks = [
-  { label: "WELCOME TO THE PROGRAM", to: "/" },
-  { label: "FEATURES", to: "/#features" },
-  { label: "PRICING & BENEFITS", to: "/#pricing" },
-  { label: "TESTIMONIALS", to: "/#testimonials" },
-];
+
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -210,27 +205,7 @@ const Header = () => {
                     ))}
                   </nav>
 
-                  <div className="mt-8 border-t border-slate-200 pt-6">
-                    <div className="flex flex-col items-start gap-6">
-                      {appLinks.map((link, index) => (
-                        <motion.a
-                          key={link.label}
-                          href={link.to}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -8 }}
-                          transition={{ delay: 0.18 + 0.03 * index, duration: 0.18 }}
-                          className={`font-heading tracking-[0.08em] ${
-                            index === 0
-                              ? "text-[#1368de] text-sm"
-                              : "text-[#1368de] text-[1.05rem] font-bold"
-                          }`}
-                        >
-                          {link.label}
-                        </motion.a>
-                      ))}
-                    </div>
-                  </div>
+                  
 
                   {/* Social icons */}
                   <div className="mt-8 border-t border-slate-200 pt-6">
