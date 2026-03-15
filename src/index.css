@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 60% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 10%;
+
+    --primary: 220 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 72 100% 50%;
+    --secondary-foreground: 220 100% 20%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 180 100% 45%;
+    --accent-foreground: 220 100% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 220 100% 40%;
+
+    --radius: 0.5rem;
+
+    --brand-blue: 220 100% 40%;
+    --brand-blue-dark: 220 100% 25%;
+    --brand-lime: 72 100% 50%;
+    --brand-cyan: 180 100% 45%;
+    --brand-navy: 220 80% 12%;
+    --brand-light-cyan: 180 60% 92%;
+    --brand-light-pink: 10 60% 92%;
+    --brand-light-lime: 72 60% 92%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --testimonial-bg: 220 60% 96%;
+--testimonial-heading: 220 100% 40%;
+--testimonial-quote: 220 30% 45%;
+--testimonial-name: 220 100% 30%;
+--testimonial-dot: 220 100% 40%;
+--testimonial-arrow-bg: 220 100% 40%;
+--testimonial-arrow-fg: 0 0% 100%;
+--blob-blue: 220 100% 40%;
+--blob-peach: 10 70% 80%;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-lime {
+    @apply bg-brand-lime text-brand-blue-dark font-heading font-bold uppercase tracking-wider
+           px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg
+           text-sm cursor-pointer;
+  }
+
+  .btn-lime-large {
+    @apply bg-brand-lime text-brand-blue-dark font-heading font-bold uppercase tracking-wider
+           px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl
+           text-base cursor-pointer;
+  }
+
+  .btn-outline-white {
+    @apply border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider
+           px-8 py-3 rounded-full transition-all duration-300 hover:bg-primary-foreground hover:text-primary
+           text-sm cursor-pointer bg-transparent;
+  }
+
+  .section-blue {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .section-navy {
+    @apply bg-brand-navy text-primary-foreground;
+  }
+
+  .heading-hero {
+    @apply font-heading font-black uppercase leading-none;
+  }
+
+  .diagonal-clip {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .diagonal-clip-reverse {
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+  }
+
+  .wave-top {
+    clip-path: ellipse(80% 100% at 50% 100%);
+  }
+}
+
+@layer utilities {
+  .text-shadow-hero {
+    text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
