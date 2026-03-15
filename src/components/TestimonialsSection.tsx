@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="w-full">
+    <section id="testimonials" className="w-full">
       <div className="relative overflow-hidden bg-testimonial-bg py-20 md:py-24 lg:py-32">
         {/* Decorative blue blob - left */}
         <div className="absolute -left-20 top-1/2 -translate-y-1/2 pointer-events-none">

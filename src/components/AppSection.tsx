@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Dumbbell, UtensilsCrossed, Tv, Sparkles, Check } from "lucide-react";
+import { Dumbbell, UtensilsCrossed, Tv, Sparkles, Check, Smile } from "lucide-react";
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/meal-burger.jpg";
 import trainerImg from "@/assets/trainer-lunges.jpg";
@@ -69,14 +69,17 @@ useEffect(() => {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActive(entry.target.id);
-        }
-      });
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visibleSections.length > 0) {
+        setActive(visibleSections[0].target.id);
+      }
     },
     {
-      threshold: 0.6,
+      threshold: [0.2, 0.35, 0.5, 0.65],
+      rootMargin: "-120px 0px -20% 0px",
     }
   );
 
@@ -567,7 +570,9 @@ const AboutSection = () => {
         {/* LEFT TEXT */}
         <div className="max-w-xl">
 
-          <div className="text-3xl text-blue-700 mb-4">☺</div>
+         <div className="mb-4">
+  <Smile className="w-8 h-8 text-blue-700" strokeWidth={2.5} />
+</div>
 
           <h2 className="text-5xl font-bold text-blue-700 mb-6">
             About Joe
@@ -633,7 +638,7 @@ const AboutSection = () => {
 
 const BenefitsSection = () => {
   return (
-    <div className="relative">
+    <div id="pricing" className="relative">
 
       {/* WAVE */}
       <div className="absolute -top-[120px] left-0 w-full">
