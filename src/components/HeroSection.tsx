@@ -1,21 +1,34 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-fitness.jpg";
+import mobileHeroImage from "@/assets/mobile-hero.jpg";
 
 const HeroSection = () => {
   return (
     <>
-      
       {/* Hero */}
       <section className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Desktop image */}
         <img
           src={heroImage}
           alt="Athletic training outdoors"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover hidden sm:block"
         />
+
+        {/* Mobile image */}
+        <img
+          src={mobileHeroImage}
+          alt="Athletic training outdoors"
+          className="absolute inset-0 w-full h-full object-cover block sm:hidden"
+        />
+
         <div className="absolute inset-0 bg-primary/30" />
 
         {/* Decorative strokes */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1400 800" preserveAspectRatio="none">
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1400 800"
+          preserveAspectRatio="none"
+        >
           <path
             d="M300 700 Q400 200 500 400 Q600 600 700 300"
             stroke="hsl(72 100% 50%)"
@@ -43,16 +56,22 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            SAY HELLO TO A REAL<br />GAME CHANGER
+            SAY HELLO TO A REAL
+            <br />
+            GAME CHANGER
           </motion.h1>
+
           <motion.p
             className="text-primary-foreground text-lg sm:text-xl lg:text-2xl font-body mb-8 opacity-90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Start your journey to a fitter,<br />healthier, happier you
+            Start your journey to a fitter,
+            <br />
+            healthier, happier you
           </motion.p>
+
           <motion.button
             className="btn-lime-large"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -63,19 +82,19 @@ const HeroSection = () => {
           </motion.button>
         </div>
 
-     <div className="absolute bottom-0 left-0 right-0">
-  <svg
-    viewBox="0 0 1440 120"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-full block"
-    preserveAspectRatio="none"
-  >
-    <path
-      d="M0,120 L0,85 C180,70 320,55 480,58 C700,62 860,92 1040,88 C1180,85 1300,68 1440,78 L1440,120 Z"
-      fill="#1368de"
-    />
-  </svg>
-</div>
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg
+            viewBox="0 0 1440 120"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full block"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,120 L0,85 C180,70 320,55 480,58 C700,62 860,92 1040,88 C1180,85 1300,68 1440,78 L1440,120 Z"
+              fill="#1368de"
+            />
+          </svg>
+        </div>
       </section>
     </>
   );

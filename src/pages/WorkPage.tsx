@@ -3,11 +3,11 @@ import { Check, Dumbbell, Star, UtensilsCrossed } from "lucide-react";
 import Header from "@/components/Header";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
-
-import heroWomanImg from "@/assets/workout-tablet.jpg";
+import heroWomanImg from "@/assets/trainer-lunges.jpg";
 import homeWorkoutImg from "@/assets/workout-tablet.jpg";
-import appPhonesImg from "@/assets/workout-tablet.jpg";
+import appPhonesImg from "@/assets/workout.jpg";
 import foodImg from "@/assets/meal-burger.jpg";
+import foodDetailImg from "@/assets/workout1.jpg";
 
 const plans = [
   {

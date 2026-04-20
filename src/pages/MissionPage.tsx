@@ -1,11 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Dumbbell, Smile, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 
-import heroImg from "@/assets/workout-tablet.jpg";
-import crowdImg from "@/assets/workout-tablet.jpg";
+import heroImg from "@/assets/trainer-lunges.jpg";
+import crowdImg from "@/assets/workout.jpg";
+import crowdDetailImg from "@/assets/workout1.jpg";
 import peJoeImg from "@/assets/workout-tablet.jpg";
 
 const stats = [
@@ -27,6 +28,15 @@ const stats = [
 ];
 
 const MissionPage = () => {
+  const reduceMotion = useReducedMotion() ?? false;
+
+  const fadeUp = (delay = 0) => ({
+    initial: reduceMotion ? false : { opacity: 0, y: 24 },
+    whileInView: reduceMotion ? {} : { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.45, delay },
+  });
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f5f5f3]">
       <Header />
@@ -50,11 +60,9 @@ const MissionPage = () => {
           <div className="grid lg:grid-cols-[0.95fr_1fr] items-center gap-10 lg:gap-16">
             {/* LEFT IMAGE */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative flex justify-center lg:justify-start"
+              {...fadeUp(0)}
+              className="relative flex justify-center lg:justify-start transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <div className="relative w-full max-w-[520px] lg:max-w-[620px] h-[500px] lg:h-[760px]">
                 <div className="absolute left-[8%] bottom-[10%] text-[#1557d6] text-7xl rotate-6 opacity-90 z-20">
@@ -104,11 +112,9 @@ const MissionPage = () => {
 
             {/* RIGHT TEXT */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative z-10 max-w-[760px]"
+              {...fadeUp(0.05)}
+              className="relative z-10 max-w-[760px] transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <h1 className="heading-hero text-[#1557d6] text-5xl sm:text-6xl lg:text-[5rem] leading-[0.92] mb-6">
                 The women behind The Body Coach
@@ -155,11 +161,9 @@ const MissionPage = () => {
               return (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.45 }}
-                  className="flex flex-col items-center"
+                  {...fadeUp(i * 0.06)}
+                  className="flex flex-col items-center transform-gpu"
+                  style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
                 >
                   <div className="mb-6 w-20 h-20 rounded-full flex items-center justify-center">
                     <Icon className="w-12 h-12 text-[#1557d6]" strokeWidth={2.5} />
@@ -195,17 +199,23 @@ const MissionPage = () => {
         </div>
 
         <div className="mx-auto w-full max-w-[1200px] px-5 text-center">
-          <div className="text-white font-heading font-bold tracking-[0.08em] text-3xl lg:text-5xl mb-4">
-            THE 10 YEAR
-          </div>
+          <motion.div
+            {...fadeUp(0)}
+            className="transform-gpu"
+            style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
+          >
+            <div className="text-white font-heading font-bold tracking-[0.08em] text-3xl lg:text-5xl mb-4">
+              THE 10 YEAR
+            </div>
 
-          <div className="heading-hero text-transparent [-webkit-text-stroke:4px_white] text-[5rem] sm:text-[7rem] lg:text-[11rem] leading-[0.9]">
-            JOURNEY
-          </div>
+            <div className="heading-hero text-transparent [-webkit-text-stroke:4px_white] text-[5rem] sm:text-[7rem] lg:text-[11rem] leading-[0.9]">
+              JOURNEY
+            </div>
 
-          <div className="heading-hero text-white text-3xl sm:text-4xl lg:text-[4rem] leading-none mt-2">
-            SO FAR...
-          </div>
+            <div className="heading-hero text-white text-3xl sm:text-4xl lg:text-[4rem] leading-none mt-2">
+              SO FAR...
+            </div>
+          </motion.div>
         </div>
 
         <div className="absolute left-0 right-0 bottom-0 pointer-events-none">
@@ -223,11 +233,9 @@ const MissionPage = () => {
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
-              initial={{ opacity: 0, x: -28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
-              className="order-2 lg:order-1"
+              {...fadeUp(0)}
+              className="order-2 lg:order-1 transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <h2 className="heading-hero text-[#1557d6] text-4xl sm:text-5xl lg:text-[4.4rem] leading-[0.92] mb-6">
                 A woomen on a mission
@@ -249,22 +257,32 @@ const MissionPage = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
-              className="order-1 lg:order-2 relative flex justify-center"
+              {...fadeUp(0.05)}
+              className="order-1 lg:order-2 relative flex justify-center transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <div className="relative w-[430px] h-[430px] lg:w-[620px] lg:h-[520px]">
                 <div className="absolute left-[14%] top-[0] w-[64%] h-[78%] rounded-full bg-[#dfe8fb] overflow-hidden" />
                 <div className="absolute right-[0] bottom-[4%] w-[35%] h-[35%] rounded-full bg-[#dfe8fb] overflow-hidden" />
 
                 <div className="absolute left-[17%] top-[3%] w-[58%] h-[72%] rounded-full overflow-hidden">
-                  <img src={crowdImg} alt="A woomen on a mission" className="w-full h-full object-cover" />
+                  <img
+                    src={crowdImg}
+                    alt="A woomen on a mission"
+                    className="w-full h-full object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
 
                 <div className="absolute right-[2.5%] bottom-[6.5%] w-[29%] h-[29%] rounded-full overflow-hidden">
-                  <img src={crowdImg} alt="Crowd detail" className="w-full h-full object-cover" />
+                  <img
+                    src={crowdDetailImg}
+                    alt="Crowd detail"
+                    className="w-full h-full object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
 
                 <div className="absolute left-[40%] top-[2%] text-pink-300 text-7xl -rotate-12">〰</div>
@@ -280,18 +298,22 @@ const MissionPage = () => {
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
-              initial={{ opacity: 0, x: -28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
-              className="relative flex justify-center"
+              {...fadeUp(0)}
+              className="relative flex justify-center transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <div className="relative w-[420px] h-[420px] lg:w-[520px] lg:h-[520px]">
                 <div className="absolute inset-0 rounded-full bg-[#e7eefc]" />
                 <div className="absolute right-[-12%] bottom-[6%] w-[42%] h-[42%] rounded-full bg-[#e7eefc]" />
 
                 <div className="absolute inset-[3%] rounded-full overflow-hidden">
-                  <img src={peJoeImg} alt="Changing lives and PE With Joe" className="w-full h-full object-cover" />
+                  <img
+                    src={peJoeImg}
+                    alt="Changing lives and PE With Joe"
+                    className="w-full h-full object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
 
                 <div className="absolute left-[44%] top-[-4%] text-cyan-400 text-7xl -rotate-12">〰</div>
@@ -300,10 +322,9 @@ const MissionPage = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
+              {...fadeUp(0.05)}
+              className="transform-gpu"
+              style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
             >
               <h2 className="heading-hero text-[#1557d6] text-4xl sm:text-5xl lg:text-[4.4rem] leading-[0.92] mb-6">
                 Changing lives and PE With Joe
