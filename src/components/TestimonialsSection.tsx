@@ -5,23 +5,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
   {
     quote:
-      'So excited to discover there was finally an app, I think it was what we were all waiting for and it doesn\'t disappoint! Everything in one place with some great design features and so easy to use. I love it!"',
-    name: "Vanessa",
+      "Подход Виктории полностью изменил моё отношение к тренировкам. Я стала лучше чувствовать тело, ушли постоянные зажимы, а результат выглядит естественно и очень качественно.",
+    name: "Ванесса",
   },
   {
     quote:
-      'This app has completely changed my routine. The workouts are amazing and the recipes are so easy to follow. Best investment I\'ve made for my health!"',
-    name: "Sarah",
+      "После нескольких недель работы я почувствовала больше силы, контроля и уверенности. Особенно ценно, что программа выстроена под меня, а не по универсальному шаблону.",
+    name: "Сара",
   },
   {
     quote:
-      'I love how everything is organized. The meal plans, the workouts, the progress tracking - it\'s all there. Highly recommend to anyone looking to get fit!"',
-    name: "James",
+      "Мне понравилось, насколько точно Виктория видит слабые места в движении. Тренировки стали понятными, безопасными и действительно эффективными.",
+    name: "Джеймс",
   },
   {
     quote:
-      'The community aspect is what keeps me going. Everyone is so supportive and the coaches are incredible. Five stars all the way!"',
-    name: "Emily",
+      "Это не просто фитнес, а системная работа с телом. Я стала двигаться свободнее, лучше восстанавливаться и наконец увидела устойчивые изменения.",
+    name: "Эмилия",
   },
 ];
 
@@ -109,9 +109,9 @@ const TestimonialsSection = () => {
 
         {/* Heading */}
         <h2 className="relative z-10 heading-hero text-center text-testimonial-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-12 md:mb-16 italic">
-          What Body Coachers
+          Что говорят
           <br />
-          are saying
+          клиенты Виктории
         </h2>
 
         {/* Quote carousel */}
@@ -148,7 +148,7 @@ const TestimonialsSection = () => {
         <button
           onClick={goPrev}
           className="hidden md:flex absolute left-1/2 -translate-x-[420px] lg:-translate-x-[520px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
-          aria-label="Previous testimonial"
+          aria-label="Предыдущий отзыв"
         >
           <ChevronLeft className="w-6 h-6 lg:w-7 lg:h-7 text-testimonial-arrow-foreground" />
         </button>
@@ -156,7 +156,7 @@ const TestimonialsSection = () => {
         <button
           onClick={goNext}
           className="hidden md:flex absolute left-1/2 translate-x-[420px] lg:translate-x-[520px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
-          aria-label="Next testimonial"
+          aria-label="Следующий отзыв"
         >
           <ChevronRight className="w-6 h-6 lg:w-7 lg:h-7 text-testimonial-arrow-foreground" />
         </button>
@@ -172,7 +172,7 @@ const TestimonialsSection = () => {
                   ? "w-3 h-3 bg-testimonial-dot"
                   : "w-2.5 h-2.5 bg-testimonial-dot/40"
               }`}
-              aria-label={`Go to testimonial ${i + 1}`}
+              aria-label={`Перейти к отзыву ${i + 1}`}
             />
           ))}
         </div>

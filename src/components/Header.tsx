@@ -1,27 +1,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Facebook, Instagram, Youtube, Send } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Instagram, Mail, MessageCircle, Send } from "lucide-react";
+import { getLenis } from "@/lib/lenis";
 
 const navLinks = [
-  { label: "MISSION", to: "/mission" },
-  { label: "WORK", to: "/work" },
-  { label: "BLOG", to: "/blog" },
-  { label: "SUPPORT", to: "/support" },
+  { label: "ОБО МНЕ", to: "/#about", hash: "#about" },
+  { label: "ПРОГРАММЫ", to: "/#pricing", hash: "#pricing" },
+  { label: "БЛОГ", to: "/blog" },
+  { label: "КОНТАКТЫ", to: "/support" },
 ];
-
-
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
@@ -32,17 +27,30 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname, location.hash]);
 
-  const desktopLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `font-heading font-bold text-primary-foreground text-[1.05rem] xl:text-[1.12rem] tracking-[0.14em] whitespace-nowrap transition-colors border-b-[3px] pb-1 ${
-      isActive
-        ? "border-brand-lime text-white"
-        : "border-transparent hover:text-brand-lime"
-    }`;
+  const scrollToHash = (hash?: string) => {
+    if (!hash || location.pathname !== "/") return;
 
-  const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `font-heading font-bold text-[1.05rem] tracking-[0.14em] transition ${
-      isActive ? "text-brand-lime" : "text-[#1368de]"
-    }`;
+    const lenis = getLenis();
+
+    window.setTimeout(() => {
+      if (lenis) {
+        lenis.scrollTo(hash, {
+          offset: -92,
+          duration: 1.1,
+        });
+      } else {
+        document.querySelector(hash)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 50);
+  };
+
+  const desktopLinkClass =
+    "font-heading font-bold text-primary-foreground text-[1.05rem] xl:text-[1.12rem] tracking-[0.14em] whitespace-nowrap transition-colors border-b-[3px] pb-1 border-transparent hover:text-brand-lime hover:border-brand-lime";
+
+  const mobileLinkClass =
+    "font-heading font-bold text-[1.05rem] tracking-[0.14em] transition text-[#1368de] hover:text-brand-lime";
 
   return (
     <>
@@ -52,8 +60,6 @@ const Header = () => {
             <Link to="/" className="relative z-[80] flex items-center shrink-0">
               <div className="w-11 h-11 lg:w-[74px] lg:h-[74px] rounded-full border-2 border-brand-cyan flex items-center justify-center">
                 <span className="font-heading font-black text-[10px] lg:text-[15px] leading-[0.9] text-brand-lime text-center">
-                  the
-                  <br />
                   body
                   <br />
                   coach
@@ -64,23 +70,28 @@ const Header = () => {
             <nav className="hidden lg:flex items-center ml-auto">
               <div className="flex items-center gap-10 xl:gap-12 mr-8 xl:mr-10">
                 {navLinks.map((link) => (
-                  <NavLink key={link.label} to={link.to} className={desktopLinkClass}>
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    onClick={() => scrollToHash(link.hash)}
+                    className={desktopLinkClass}
+                  >
                     {link.label}
-                  </NavLink>
+                  </Link>
                 ))}
               </div>
 
               <Link
-                to="/work"
+                to="/support"
                 className="btn-lime text-[0.98rem] xl:text-[1.02rem] px-8 py-4 whitespace-nowrap inline-flex items-center justify-center"
               >
-                PROGRAMS
+                ЗАПИСАТЬСЯ
               </Link>
             </nav>
 
             <button
               type="button"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileOpen ? "Закрыть меню" : "Открыть меню"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((prev) => !prev)}
               className="lg:hidden relative z-[90] w-10 h-10 flex items-center justify-center"
@@ -126,7 +137,7 @@ const Header = () => {
           <>
             <motion.button
               type="button"
-              aria-label="Close menu backdrop"
+              aria-label="Закрыть меню"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.18 }}
               exit={{ opacity: 0 }}
@@ -147,8 +158,6 @@ const Header = () => {
                   <Link to="/" className="flex items-center">
                     <div className="w-12 h-12 rounded-full border-2 border-[#1368de] flex items-center justify-center">
                       <span className="font-heading font-black text-[10px] leading-tight text-[#1368de] text-center">
-                        the
-                        <br />
                         body
                         <br />
                         coach
@@ -158,7 +167,7 @@ const Header = () => {
 
                   <button
                     type="button"
-                    aria-label="Close menu"
+                    aria-label="Закрыть меню"
                     onClick={() => setMobileOpen(false)}
                     className="relative z-[95] w-10 h-10 flex items-center justify-center"
                   >
@@ -198,46 +207,40 @@ const Header = () => {
                         exit={{ opacity: 0, x: -8 }}
                         transition={{ delay: 0.03 * index, duration: 0.18 }}
                       >
-                        <NavLink to={link.to} className={mobileLinkClass}>
+                        <Link
+                          to={link.to}
+                          onClick={() => {
+                            scrollToHash(link.hash);
+                            setMobileOpen(false);
+                          }}
+                          className={mobileLinkClass}
+                        >
                           {link.label}
-                        </NavLink>
+                        </Link>
                       </motion.div>
                     ))}
                   </nav>
 
-                  
-
-                  {/* Social icons */}
                   <div className="mt-8 border-t border-slate-200 pt-6">
                     <div className="flex items-center gap-5">
-                      <a
-                        href="https://facebook.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="Facebook"
-                        className="text-[#1368de] hover:text-brand-lime transition-colors"
-                      >
-                        <Facebook className="w-6 h-6" />
-                      </a>
-
-                      <a
-                        href="https://youtube.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="YouTube"
-                        className="text-[#1368de] hover:text-brand-lime transition-colors"
-                      >
-                        <Youtube className="w-6 h-6" />
-                      </a>
-
                       <a
                         href="https://instagram.com/"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Instagram"
-                        className="text-[#1368de] hover:text-brand-lime transition-colors"
+                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
                       >
                         <Instagram className="w-6 h-6" />
+                      </a>
+
+                      <a
+                        href="https://wa.me/"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="WhatsApp"
+                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
+                      >
+                        <MessageCircle className="w-6 h-6" />
                       </a>
 
                       <a
@@ -245,9 +248,17 @@ const Header = () => {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Telegram"
-                        className="text-[#1368de] hover:text-brand-lime transition-colors"
+                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
                       >
                         <Send className="w-6 h-6" />
+                      </a>
+
+                      <a
+                        href="mailto:hello@example.com"
+                        aria-label="Email"
+                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
+                      >
+                        <Mail className="w-6 h-6" />
                       </a>
                     </div>
                   </div>
@@ -270,17 +281,17 @@ const Header = () => {
 
                   <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
                     <p className="max-w-[280px] text-white/75 text-[15px] leading-snug mb-5">
-                      Start your journey to a fitter,
+                      Начните путь к сильному,
                       <br />
-                      healthier, happier you
+                      здоровому и красивому телу
                     </p>
 
                     <Link
-                      to="/work"
+                      to="/support"
                       onClick={() => setMobileOpen(false)}
                       className="btn-lime mt-1 inline-flex items-center justify-center"
                     >
-                      TRY IT FOR FREE
+                      ЗАПИСАТЬСЯ
                     </Link>
                   </div>
                 </div>

@@ -1,274 +1,84 @@
-import { motion, useReducedMotion, useInView } from "framer-motion";
-import type { ReactNode } from "react";
-import { useState, useRef, useEffect } from "react";
-import {
-  Dumbbell,
-  UtensilsCrossed,
-  Tv,
-  Sparkles,
-  Check,
-  Smile,
-} from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { Check, Award, MapPin } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
-import mealImg from "@/assets/meal-burger.jpg";
+import mealImg from "@/assets/trainer-lunges.jpg";
 import trainerImg from "@/assets/trainer-lunges.jpg";
 import workoutCaseImg from "@/assets/workout.jpg";
 import workoutCaseImg1 from "@/assets/workout1.jpg";
 
-type Feature = {
-  icon: ReactNode;
-  title: string;
-  description: string;
-  image: string;
-  bg: string;
-};
-
-const features: Feature[] = [
+const resultItems = [
   {
-    icon: <Dumbbell className="w-10 h-10 text-primary" />,
-    title: "Quick workouts and a structured plan",
-    description:
-      "You'll get a personalised workout plan, designed to improve fitness, strength and burn fat, with new workouts every four weeks to help you progress.",
-    image: workoutImg,
-    bg: "bg-brand-light-cyan",
+    img: workoutImg,
+    t: "Тело становится сильным и функциональным",
   },
   {
-    icon: <UtensilsCrossed className="w-10 h-10 text-primary" />,
-    title: "Meals tailored to you and your body",
-    description:
-      "Enjoy a range of tasty recipes, tailored specifically to your body and goals. Expect simple, delicious dishes and a way of eating you can stick to.",
-    image: mealImg,
-    bg: "bg-brand-light-pink",
+    img: workoutCaseImg,
+    t: "Исчезают хронические зажимы и перегрузки",
   },
   {
-    icon: <Tv className="w-10 h-10 text-primary" />,
-    title: "Challenges and Classes",
-    description:
-      "Join exclusive Classes each week with Joe and the other Body Coach trainers. Plus get access to incredible fitness challenges and workout series.",
-    image: workoutCaseImg,
-    bg: "bg-brand-light-pink",
+    img: workoutCaseImg1,
+    t: "Улучшается качество движения и контроль",
   },
   {
-    icon: <Sparkles className="w-10 h-10 text-primary" />,
-    title: "Plus lots more",
-    description:
-      "Seasonal recipe drops, in-app planning tools, inspirational messages from Joe, and access to The Body Coach Support Heroes and community to keep you motivated every step of the way.",
-    image: workoutCaseImg1,
-    bg: "bg-brand-light-lime",
+    img: mealImg,
+    t: "Формируется визуально выверенная, «дорогая» форма",
   },
 ];
 
 const plans = [
   {
-    name: "Starter",
-    price: "£9.99",
-    period: "per month",
-    description: "Perfect for beginners looking to kickstart their fitness journey",
+    name: "Старт",
+    price: "€90",
+    period: "первая консультация",
+    description:
+      "Подходит для знакомства с подходом, первичной оценки тела и определения стратегии работы.",
     features: [
-      "Structured workout cycles",
-      "Basic meal plans",
-      "Access to community",
-      "Weekly progress tracking",
+      "Разбор целей и запроса",
+      "Оценка состояния тела",
+      "Первичная стратегия тренировок",
+      "Рекомендации по нагрузке",
     ],
     popular: false,
   },
   {
-    name: "Pro",
-    price: "£7.50",
-    period: "per month (billed yearly)",
-    description: "Our most popular plan — best value for committed transformations",
+    name: "Персонально",
+    price: "€250",
+    period: "индивидуальный формат",
+    description:
+      "Оптимальный вариант для системной работы над телом, движением, силой и качеством результата.",
     features: [
-      "Everything in Starter",
-      "Personalised meal plans",
-      "Live Classes with Joe",
-      "Exclusive challenges",
-      "In-app planning tools",
-      "Priority support",
+      "Индивидуальная программа",
+      "Функциональный и силовой тренинг",
+      "Коррекция слабых звеньев",
+      "Контроль техники и прогресса",
+      "Адаптация нагрузки под состояние",
+      "Поддержка между сессиями",
     ],
     popular: true,
   },
   {
-    name: "Monthly",
-    price: "£14.99",
-    period: "per month",
-    description: "Full access with flexible month-to-month billing",
+    name: "Сопровождение",
+    price: "€490",
+    period: "расширенный формат",
+    description:
+      "Для тех, кому нужен глубокий процесс трансформации с регулярной корректировкой программы.",
     features: [
-      "Everything in Pro",
-      "Cancel anytime",
-      "Full recipe library",
-      "All workout programmes",
-      "Body Coach support group",
+      "Полная диагностика движения",
+      "Персональная система тренировок",
+      "Работа с осанкой и компенсациями",
+      "Контроль восстановления",
+      "Долгосрочная стратегия результата",
     ],
     popular: false,
   },
 ];
 
-type FeatureItemProps = {
-  feature: Feature;
-  index: number;
-  reduceMotion: boolean;
-};
-
-const FeatureItem = ({ feature, index, reduceMotion }: FeatureItemProps) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.25,
-    margin: "0px 0px -12% 0px",
-  });
-
-  const imageInitial = reduceMotion
-    ? {}
-    : { opacity: 0, y: 24, scale: 0.985 };
-
-  const textInitial = reduceMotion ? {} : { opacity: 0, y: 24 };
-
-  return (
-    <div ref={ref} className="container mx-auto px-4 py-8 lg:py-12 relative">
-      <div className="absolute -left-10 top-10 text-brand-lime opacity-40 rotate-12 text-5xl">
-        〰
-      </div>
-
-      <div className="absolute -right-10 bottom-10 text-brand-cyan opacity-40 -rotate-12 text-5xl">
-        〰
-      </div>
-
-      <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
-        <motion.div
-          className={`w-full flex justify-center ${
-            index % 2 !== 0 ? "lg:order-2" : ""
-          }`}
-          initial={imageInitial}
-          animate={
-            reduceMotion
-              ? {}
-              : isInView
-              ? { opacity: 1, y: 0, scale: 1 }
-              : imageInitial
-          }
-          transition={{ duration: 0.55 }}
-          style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
-        >
-          <div className="w-full max-w-[480px] aspect-square rounded-2xl shadow-2xl overflow-hidden bg-white/10 transform-gpu">
-            <img
-              src={feature.image}
-              alt={feature.title}
-              className="w-full h-full object-cover block"
-              loading="eager"
-              decoding="async"
-              draggable={false}
-            />
-          </div>
-        </motion.div>
-
-        <motion.div
-          className={`max-w-xl ${
-            index % 2 !== 0 ? "lg:order-1" : ""
-          }`}
-          initial={textInitial}
-          animate={
-            reduceMotion
-              ? {}
-              : isInView
-              ? { opacity: 1, y: 0 }
-              : textInitial
-          }
-          transition={{ duration: 0.5, delay: 0.08 }}
-          style={{ willChange: reduceMotion ? "auto" : "transform, opacity" }}
-        >
-          {feature.icon}
-
-          <h3 className="heading-hero text-3xl sm:text-4xl lg:text-5xl text-primary mt-4 mb-4">
-            {feature.title}
-          </h3>
-
-          <p className="text-foreground/80 text-base lg:text-lg leading-relaxed">
-            {feature.description}
-          </p>
-        </motion.div>
-      </div>
-    </div>
-  );
-};
-
 const AppSection = () => {
-  const shouldReduceMotion = useReducedMotion() ?? false;
-
-  const navRef = useRef<HTMLDivElement | null>(null);
-  const navTop = useRef(0);
-  const [isFixed, setIsFixed] = useState(false);
-  const [active, setActive] = useState("features");
-
-  useEffect(() => {
-    const updateNavTop = () => {
-      if (navRef.current) {
-        navTop.current =
-          navRef.current.getBoundingClientRect().top + window.scrollY;
-      }
-    };
-
-    updateNavTop();
-    window.addEventListener("resize", updateNavTop);
-    window.addEventListener("load", updateNavTop);
-
-    return () => {
-      window.removeEventListener("resize", updateNavTop);
-      window.removeEventListener("load", updateNavTop);
-    };
-  }, []);
-
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (ticking) return;
-
-      window.requestAnimationFrame(() => {
-        setIsFixed(window.scrollY >= navTop.current);
-        ticking = false;
-      });
-
-      ticking = true;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = ["features", "pricing", "testimonials"];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleSections.length > 0) {
-          setActive(visibleSections[0].target.id);
-        }
-      },
-      {
-        threshold: [0.2, 0.35, 0.5, 0.65],
-        rootMargin: "-120px 0px -20% 0px",
-      }
-    );
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section>
-      {/* BLUE SECTION */}
-      <div className="relative bg-gradient-to-b from-[#1368de] to-[#1368de] text-white">
+      {/* BLUE BIO SECTION */}
+      <div className="relative bg-gradient-to-b from-[#1368de] to-[#1368de] text-white overflow-hidden">
         <svg
           className="absolute right-0 bottom-0 w-[640px] h-[420px] z-0 pointer-events-none"
           viewBox="0 0 640 420"
@@ -335,373 +145,192 @@ const AppSection = () => {
           </svg>
         </div>
 
-        {/* Title */}
-        <div className="text-center py-16 lg:py-24 px-4">
-          <motion.h2
-            className="heading-hero text-4xl sm:text-5xl lg:text-7xl text-primary-foreground"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55 }}
-          >
-            Welcome to
-            <br />
-            The Body Coach App
-          </motion.h2>
-        </div>
+        <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
+            <Reveal className="order-1 lg:order-2 flex justify-center">
+              <div className="w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[560px] xl:max-w-[620px] aspect-square rounded-[32px] overflow-hidden bg-white/10 shadow-2xl">
+                <img
+                  src={trainerImg}
+                  alt="Виктория Примасюк"
+                  className="w-full h-full object-cover block"
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                />
+              </div>
+            </Reveal>
 
-        {/* Sticky Navigation */}
-        <div className="hidden md:block h-[88px]">
-          <div
-            ref={navRef}
-            className={`bg-[#1368de] transition-all ${
-              isFixed ? "fixed top-[92px] left-0 w-full z-40" : "relative z-10"
-            }`}
-          >
-            <div className="flex justify-center gap-10 py-6">
-              <a
-                href="#features"
-                className={`font-heading font-bold tracking-wider text-primary-foreground pb-2 border-b-2 transition ${
-                  active === "features"
-                    ? "border-brand-cyan text-white"
-                    : "border-transparent hover:border-brand-cyan"
-                }`}
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <Reveal
+                delay={80}
+                className="flex justify-center lg:justify-start mb-6"
               >
-                FEATURES
-              </a>
+                <div className="w-16 h-16 rounded-full bg-primary-foreground/10 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-brand-lime" />
+                </div>
+              </Reveal>
 
-              <a
-                href="#pricing"
-                className={`font-heading font-bold tracking-wider text-primary-foreground pb-2 border-b-2 transition ${
-                  active === "pricing"
-                    ? "border-brand-cyan text-white"
-                    : "border-transparent hover:border-brand-cyan"
-                }`}
+              <Reveal
+                as="h2"
+                delay={140}
+                className="heading-hero text-4xl sm:text-5xl lg:text-7xl text-primary-foreground mb-6"
               >
-                PRICING & BENEFITS
-              </a>
+                О тренере
+              </Reveal>
 
-              <a
-                href="#testimonials"
-                className={`font-heading font-bold tracking-wider text-primary-foreground pb-2 border-b-2 transition ${
-                  active === "testimonials"
-                    ? "border-brand-cyan text-white"
-                    : "border-transparent hover:border-brand-cyan"
-                }`}
+              <Reveal
+                as="h3"
+                delay={220}
+                className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-primary-foreground mb-6 leading-tight"
               >
-                TESTIMONIALS
-              </a>
+                Виктория Примасюк — эксперт в области трансформации тела,
+                преподаватель и специалист по функциональному движению с более
+                чем 15-летним опытом.
+              </Reveal>
+
+              <Reveal
+                delay={300}
+                className="space-y-5 text-primary-foreground/85 text-base leading-[1.7] max-w-2xl mx-auto lg:mx-0"
+              >
+                <p>
+                  Выпускница и преподаватель Национального университета
+                  физического воспитания и спорта Украины. Свою практику
+                  Виктория выстроила на стыке спорта, науки и восстановительной
+                  медицины — объединив силовой тренинг, биомеханику и
+                  физиотерапию в единую систему работы с телом.
+                </p>
+
+                <p>
+                  Сегодня Виктория ведёт частную практику в Милане — одном из
+                  ключевых европейских центров фитнеса и эстетики, работая с
+                  требовательной аудиторией, для которой важен не только
+                  результат, но и качество процесса.
+                </p>
+              </Reveal>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10 max-w-2xl mx-auto lg:mx-0">
+                <Reveal delay={380}>
+                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                    <div className="text-3xl font-heading font-black text-brand-lime">
+                      15+
+                    </div>
+                    <div className="text-sm text-primary-foreground/75 mt-1">
+                      лет опыта
+                    </div>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={480}>
+                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                    <div className="text-3xl font-heading font-black text-brand-lime">
+                      50+
+                    </div>
+                    <div className="text-sm text-primary-foreground/75 mt-1">
+                      сертификаций
+                    </div>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={580}>
+                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                    <div className="flex justify-center mb-1">
+                      <MapPin className="w-7 h-7 text-brand-lime" />
+                    </div>
+                    <div className="text-sm text-primary-foreground/75">
+                      Милан
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* HERO INFO */}
-        <div className="relative text-center max-w-4xl mx-auto px-6 pb-24 pt-10">
-          <div className="absolute left-10 top-10 text-brand-lime opacity-60 rotate-12 text-5xl">
-            〰
-          </div>
-
-          <div className="absolute right-12 bottom-8 text-brand-cyan opacity-60 -rotate-12 text-5xl">
-            〰
-          </div>
-
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-              <Dumbbell className="w-8 h-8 text-brand-lime" />
-            </div>
-          </div>
-
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55, delay: 0.05 }}
-          >
-            <h3 className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground mb-6">
-              A lifestyle change you
-              <br />
-              can actually stick to
-            </h3>
-
-            <p className="text-primary-foreground/80 text-lg leading-relaxed max-w-2xl mx-auto">
-              There are so many reasons why sticking to a fitness or food programme can
-              be challenging, and our philosophy has always been to keep things simple.
-              Our principles have helped change millions of lives around the world.
-            </p>
-          </motion.div>
         </div>
       </div>
 
-      {/* FEATURES */}
-      <div
-        id="features"
-        className="relative bg-brand-light-cyan pt-24 overflow-hidden"
+      {/* RESULTS SECTION */}
+      <section
+        id="results"
+        className="relative bg-[#ffd6e7] py-12 sm:py-16 lg:py-24 overflow-hidden"
       >
+        {/* Lightweight decorative curls */}
+        <div className="absolute left-[8%] top-[70px] text-brand-lime opacity-70 rotate-12 text-5xl pointer-events-none">
+          〰
+        </div>
+
+        <div className="absolute right-[10%] top-[140px] text-brand-cyan opacity-70 -rotate-12 text-5xl pointer-events-none">
+          〰
+        </div>
+
+        <div className="absolute left-[45%] bottom-[80px] text-pink-400 opacity-50 rotate-6 text-4xl pointer-events-none">
+          〰
+        </div>
+
         <svg
-          className="absolute left-1/2 top-10 md:top-20 -translate-x-1/2 w-[260vw] md:w-[300vw] h-[400px] md:h-[700px] opacity-15 md:opacity-10 pointer-events-none"
-          viewBox="-600 0 2400 600"
+          className="absolute left-[18%] top-[120px] w-[110px] opacity-70 pointer-events-none"
+          viewBox="0 0 200 120"
           fill="none"
-          stroke="currentColor"
-          strokeWidth="180"
+          stroke="#3ad1c6"
+          strokeWidth="10"
+          strokeLinecap="round"
         >
-          <path
-            d="M-400 400
-               C200 0 600 0 1000 300
-               S1800 600 2200 200"
-            className="text-brand-blue"
-          />
+          <path d="M10 70 C40 10 90 20 120 60 S180 110 190 30" />
         </svg>
 
         <svg
-          className="absolute left-1/2 bottom-[-100px] -translate-x-1/2 w-[300vw] h-[700px] opacity-10 pointer-events-none"
-          viewBox="-600 0 2400 600"
+          className="absolute right-[16%] bottom-[90px] w-[120px] opacity-70 pointer-events-none"
+          viewBox="0 0 200 160"
           fill="none"
-          stroke="currentColor"
-          strokeWidth="160"
+          stroke="#d4ff6a"
+          strokeWidth="10"
+          strokeLinecap="round"
         >
-          <path
-            d="M-500 150
-               C200 500 800 0 1400 350
-               S2200 500 2600 200"
-            className="text-brand-blue"
-          />
+          <path d="M10 100 C80 160 120 20 190 80" />
         </svg>
 
-        {features.map((feature, i) => (
-          <FeatureItem
-            key={feature.title}
-            feature={feature}
-            index={i}
-            reduceMotion={shouldReduceMotion}
-          />
-        ))}
-      </div>
+        <div className="relative z-10">
+          <div className="px-4 sm:px-8 lg:px-12 mb-10 lg:mb-16">
+            <Reveal
+              as="h2"
+              className="font-display text-primary text-3xl sm:text-5xl lg:text-6xl max-w-4xl uppercase leading-[1.05]"
+            >
+              Работа с Викторией - это не быстрый эффект, а системная
+              трансформация.
+            </Reveal>
+          </div>
 
-      <AboutSection />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 px-4 sm:px-8 lg:px-12">
+            {resultItems.map((it, i) => (
+              <Reveal
+                key={i}
+                delay={i * 100}
+                className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl"
+              >
+                <img
+                  src={it.img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                />
+
+                <div className="absolute inset-0 bg-black/40" />
+
+                <p className="absolute inset-0 p-4 flex items-end font-display text-white uppercase text-sm sm:text-base lg:text-lg leading-tight">
+                  {it.t}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <BenefitsSection />
     </section>
   );
 };
 
-const PricingSection = () => {
-  const shouldReduceMotion = useReducedMotion() ?? false;
-
-  const benefits = [
-    "Structured workout cycles tailored to you",
-    "A meal plan designed for your body",
-    "Unlimited new cycles of content",
-    "In-app planning tools to stay on track",
-    "Exclusive Body Coach support group",
-    "Mixed, pescatarian, veggie and vegan meals",
-    "Train-a-long with Joe every workout",
-  ];
-
-  return (
-    <div className="section-blue py-16 lg:py-24 px-4">
-      <div className="text-center mb-16">
-        <h2 className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground mb-4">
-          Get start right now
-          <br />
-          your journey today
-        </h2>
-        <p className="text-primary-foreground/70 font-body text-lg max-w-2xl mx-auto">
-          Choose the plan that works for you. All plans include full access to
-          workouts, recipes and the Body Coach community.
-        </p>
-      </div>
-
-      <div className="container mx-auto grid md:grid-cols-3 gap-6 lg:gap-8 mb-16 max-w-5xl">
-        {plans.map((plan, i) => (
-          <motion.div
-            key={i}
-            className={`relative rounded-3xl p-8 flex flex-col transition-all duration-300 ${
-              plan.popular
-                ? "bg-brand-lime text-brand-blue-dark scale-105 shadow-2xl"
-                : "bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border border-primary-foreground/20"
-            }`}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            whileHover={shouldReduceMotion ? undefined : { y: -8 }}
-          >
-            {plan.popular && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-heading font-bold tracking-widest px-6 py-1.5 rounded-full uppercase">
-                Most Popular
-              </div>
-            )}
-
-            <h3 className="heading-hero text-3xl lg:text-4xl mb-2">{plan.name}</h3>
-            <div className="flex items-baseline gap-1 mb-1">
-              <span className="heading-hero text-4xl lg:text-5xl">{plan.price}</span>
-            </div>
-            <p className={`text-sm mb-4 ${plan.popular ? "text-brand-blue-dark/70" : "text-primary-foreground/50"}`}>
-              {plan.period}
-            </p>
-            <p className={`text-sm mb-6 leading-relaxed ${plan.popular ? "text-brand-blue-dark/80" : "text-primary-foreground/70"}`}>
-              {plan.description}
-            </p>
-
-            <ul className="space-y-3 mb-8 flex-1">
-              {plan.features.map((f, j) => (
-                <li key={j} className="flex items-start gap-2 text-sm">
-                  <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? "text-primary" : "text-brand-lime"}`} />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              className={`w-full py-3 rounded-full font-heading font-bold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
-                plan.popular
-                  ? "bg-primary text-primary-foreground hover:shadow-xl"
-                  : "bg-brand-lime text-brand-blue-dark hover:shadow-lg"
-              }`}
-            >
-              GET STARTED
-            </button>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="container mx-auto flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-24 max-w-5xl">
-        <div className="space-y-4">
-          {benefits.map((b, i) => (
-            <motion.div
-              key={i}
-              className="flex items-center gap-3"
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
-            >
-              <div className="w-7 h-7 rounded-full bg-brand-lime flex items-center justify-center flex-shrink-0">
-                <Check className="w-4 h-4 text-primary" strokeWidth={3} />
-              </div>
-              <span className="text-primary-foreground font-body font-medium text-base">
-                {b}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const AboutSection = () => {
-  const shouldReduceMotion = useReducedMotion() ?? false;
-
-  return (
-    <section className="relative bg-[#dbe7c4] overflow-hidden pt-32 pb-48">
-      <svg
-        className="absolute left-[10%] top-[120px] w-[120px] opacity-60"
-        viewBox="0 0 200 200"
-        fill="none"
-        stroke="#b9e55e"
-        strokeWidth="14"
-        strokeLinecap="round"
-      >
-        <path d="M10 150 C60 20 150 40 180 120" />
-      </svg>
-
-      <svg
-        className="absolute right-[18%] top-[260px] w-[220px] opacity-70"
-        viewBox="0 0 500 500"
-        fill="none"
-        stroke="#b9e55e"
-        strokeWidth="18"
-        strokeLinecap="round"
-      >
-        <path d="M40 420 C200 120 420 150 460 300" />
-      </svg>
-
-      <svg
-        className="absolute left-[40%] bottom-[160px] w-[180px] opacity-60"
-        viewBox="0 0 300 300"
-        fill="none"
-        stroke="#b9e55e"
-        strokeWidth="14"
-        strokeLinecap="round"
-      >
-        <path d="M20 200 C120 40 200 80 260 160" />
-      </svg>
-
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-12 px-8 relative z-30">
-        <motion.div
-          className="max-w-xl"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="mb-4">
-            <Smile className="w-8 h-8 text-blue-700" strokeWidth={2.5} />
-          </div>
-
-          <h2 className="text-5xl font-bold text-blue-700 mb-6">
-            About Joe
-          </h2>
-
-          <p className="text-lg text-blue-900/80 leading-relaxed mb-8">
-            Joe Wicks, also known as The Body Coach, has helped millions of
-            people around the world transform their lives through simple
-            workouts and delicious recipes.
-          </p>
-
-          <p className="text-lg text-blue-900/80 leading-relaxed mb-10">
-            His mission is to make fitness and healthy eating accessible
-            for everyone — no matter your level, schedule, or experience.
-          </p>
-
-          <button className="bg-blue-700 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-800 transition">
-            Learn More
-          </button>
-        </motion.div>
-
-        <motion.div
-          className="relative w-full h-[460px] flex justify-center"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-        >
-          <svg
-            viewBox="0 0 500 500"
-            className="absolute inset-0 w-full h-full"
-          >
-            <defs>
-              <clipPath id="blob">
-                <path
-                  d="
-                  M90,40
-                  C200,-20 380,40 430,160
-                  C480,280 420,420 300,460
-                  C180,500 60,420 40,300
-                  C20,180 40,80 90,40
-                  Z
-                "
-                />
-              </clipPath>
-            </defs>
-
-            <image
-              href={trainerImg}
-              width="500"
-              height="500"
-              clipPath="url(#blob)"
-              preserveAspectRatio="xMidYMid slice"
-            />
-          </svg>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 const BenefitsSection = () => {
-  const shouldReduceMotion = useReducedMotion() ?? false;
-
   return (
     <div id="pricing" className="relative">
       <div className="absolute -top-[120px] left-0 w-full">
@@ -724,74 +353,91 @@ const BenefitsSection = () => {
         </svg>
       </div>
 
-      <section className="section-blue pt-32 pb-24 px-4 relative z-20">
+      <section className="section-blue pt-32 pb-24 px-4 relative z-20 overflow-hidden">
         <div className="text-center mb-20">
-          <h2 className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground">
-            Choose your plan
-          </h2>
-          <p className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto">
-            Get full access to workouts, recipes and exclusive Body Coach content.
-          </p>
+          <Reveal
+            as="h2"
+            className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground"
+          >
+            Выберите формат работы
+          </Reveal>
+
+          <Reveal
+            as="p"
+            delay={120}
+            className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
+          >
+            Начните с консультации или выберите индивидуальное сопровождение
+            для системной трансформации тела.
+          </Reveal>
         </div>
 
-        <div className="container mx-auto grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl">
+        <div className="container mx-auto grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl items-stretch">
           {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              className={`relative rounded-3xl p-8 flex flex-col transition-all duration-300 ${
-                plan.popular
-                  ? "bg-brand-lime text-brand-blue-dark scale-105 shadow-2xl"
-                  : "bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border border-primary-foreground/20"
-              }`}
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              whileHover={shouldReduceMotion ? undefined : { y: -10 }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-heading font-bold tracking-widest px-6 py-1.5 rounded-full uppercase">
-                  Most Popular
-                </div>
-              )}
-
-              <h3 className="heading-hero text-3xl mb-2">{plan.name}</h3>
-
-              <div className="flex items-baseline gap-1 mb-1">
-                <span className="heading-hero text-5xl">{plan.price}</span>
-              </div>
-
-              <p className={`text-sm mb-4 ${plan.popular ? "text-brand-blue-dark/70" : "text-primary-foreground/50"}`}>
-                {plan.period}
-              </p>
-
-              <p className={`text-sm mb-6 leading-relaxed ${plan.popular ? "text-brand-blue-dark/80" : "text-primary-foreground/70"}`}>
-                {plan.description}
-              </p>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm">
-                    <Check
-                      className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                        plan.popular ? "text-primary" : "text-brand-lime"
-                      }`}
-                    />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                className={`w-full py-3 rounded-full font-heading font-bold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105 ${
+            <Reveal key={i} delay={i * 100} className="relative h-full">
+              <div
+                className={`relative h-full rounded-3xl p-8 flex flex-col transition-transform duration-300 ${
                   plan.popular
-                    ? "bg-primary text-primary-foreground hover:shadow-xl"
-                    : "bg-brand-lime text-brand-blue-dark hover:shadow-lg"
+                    ? "bg-brand-lime text-brand-blue-dark shadow-2xl"
+                    : "bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border border-primary-foreground/20"
                 }`}
               >
-                GET STARTED
-              </button>
-            </motion.div>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-heading font-bold tracking-widest px-6 py-1.5 rounded-full uppercase whitespace-nowrap">
+                    Популярный формат
+                  </div>
+                )}
+
+                <h3 className="heading-hero text-3xl mb-2">{plan.name}</h3>
+
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="heading-hero text-5xl">{plan.price}</span>
+                </div>
+
+                <p
+                  className={`text-sm mb-4 ${
+                    plan.popular
+                      ? "text-brand-blue-dark/70"
+                      : "text-primary-foreground/50"
+                  }`}
+                >
+                  {plan.period}
+                </p>
+
+                <p
+                  className={`text-sm mb-6 leading-relaxed ${
+                    plan.popular
+                      ? "text-brand-blue-dark/80"
+                      : "text-primary-foreground/70"
+                  }`}
+                >
+                  {plan.description}
+                </p>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm">
+                      <Check
+                        className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                          plan.popular ? "text-primary" : "text-brand-lime"
+                        }`}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  className={`w-full py-3 rounded-full font-heading font-bold uppercase tracking-wider text-sm transition-transform duration-300 hover:scale-[1.02] ${
+                    plan.popular
+                      ? "bg-primary text-primary-foreground hover:shadow-xl"
+                      : "bg-brand-lime text-brand-blue-dark hover:shadow-lg"
+                  }`}
+                >
+                  Записаться
+                </button>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>

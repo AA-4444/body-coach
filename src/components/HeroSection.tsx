@@ -6,26 +6,27 @@ const HeroSection = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Desktop image */}
         <img
           src={heroImage}
-          alt="Athletic training outdoors"
-          className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+          alt="Виктория Примасюк — эксперт по трансформации тела"
+          className="absolute inset-0 z-0 w-full h-full object-cover hidden sm:block"
         />
 
         {/* Mobile image */}
         <img
           src={mobileHeroImage}
-          alt="Athletic training outdoors"
-          className="absolute inset-0 w-full h-full object-cover block sm:hidden"
+          alt="Виктория Примасюк — эксперт по трансформации тела"
+          className="absolute inset-0 z-0 w-full h-full object-cover block sm:hidden"
         />
 
-        <div className="absolute inset-0 bg-primary/30" />
+        {/* Light dark overlay for better text readability */}
+        <div className="absolute inset-0 z-[1] bg-black/35" />
 
-        {/* Decorative strokes */}
+        {/* Decorative strokes — under the text */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 z-[2] w-full h-full pointer-events-none"
           viewBox="0 0 1400 800"
           preserveAspectRatio="none"
         >
@@ -49,40 +50,38 @@ const HeroSection = () => {
           />
         </svg>
 
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 w-full px-4 text-center">
           <motion.h1
-            className="heading-hero text-5xl sm:text-7xl lg:text-9xl text-primary-foreground text-shadow-hero mb-6"
+            className="heading-hero text-6xl sm:text-7xl lg:text-9xl text-primary-foreground text-shadow-hero mb-6"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            SAY HELLO TO A REAL
-            <br />
-            GAME CHANGER
+            Виктория Примасюк
           </motion.h1>
 
           <motion.p
-            className="text-primary-foreground text-lg sm:text-xl lg:text-2xl font-body mb-8 opacity-90"
+            className="mx-auto max-w-[320px] sm:max-w-none text-primary-foreground text-base sm:text-xl lg:text-2xl font-body mb-8 opacity-90 leading-snug sm:leading-normal"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Start your journey to a fitter,
-            <br />
-            healthier, happier you
+            Эксперт по трансформации тела.
+            <br className="block sm:hidden" /> Функциональное движение.
           </motion.p>
 
-          <motion.button
-            className="btn-lime-large"
+          <motion.a
+            href="#contact"
+            className="btn-lime-large inline-flex items-center justify-center w-full sm:w-auto h-[52px]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            TRY IT FOR FREE
-          </motion.button>
+            Записаться на консультацию
+          </motion.a>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute bottom-0 left-0 right-0 z-[3]">
           <svg
             viewBox="0 0 1440 120"
             xmlns="http://www.w3.org/2000/svg"
