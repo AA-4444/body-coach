@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { Check, Award, MapPin } from "lucide-react";
+import { Check, Award } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/trainer-lunges.jpg";
@@ -78,7 +78,10 @@ const AppSection = () => {
   return (
     <section>
       {/* BLUE BIO SECTION */}
-      <div className="relative bg-gradient-to-b from-[#1368de] to-[#1368de] text-white overflow-hidden">
+      <div
+        id="about"
+        className="relative bg-gradient-to-b from-[#1368de] to-[#1368de] text-white overflow-hidden"
+      >
         <svg
           className="absolute right-0 bottom-0 w-[640px] h-[420px] z-0 pointer-events-none"
           viewBox="0 0 640 420"
@@ -233,10 +236,10 @@ const AppSection = () => {
 
                 <Reveal delay={580}>
                   <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
-                    <div className="flex justify-center mb-1">
-                      <MapPin className="w-7 h-7 text-brand-lime" />
+                    <div className="text-3xl font-heading font-black text-brand-lime">
+                      MI
                     </div>
-                    <div className="text-sm text-primary-foreground/75">
+                    <div className="text-sm text-primary-foreground/75 mt-1">
                       Милан
                     </div>
                   </div>
@@ -372,9 +375,9 @@ const BenefitsSection = () => {
           </Reveal>
         </div>
 
-        <div className="container mx-auto grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl items-stretch">
+        <div className="mx-auto grid w-full max-w-sm grid-cols-1 gap-6 md:max-w-6xl md:grid-cols-3 lg:gap-8 items-stretch">
           {plans.map((plan, i) => (
-            <Reveal key={i} delay={i * 100} className="relative h-full">
+            <Reveal key={i} delay={i * 100} className="relative h-full w-full">
               <div
                 className={`relative h-full rounded-3xl p-8 flex flex-col transition-transform duration-300 ${
                   plan.popular
