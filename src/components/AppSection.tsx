@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { Check, Award } from "lucide-react";
+import { Check, Award, ArrowRight } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/trainer-lunges.jpg";
@@ -26,52 +26,13 @@ const resultItems = [
   },
 ];
 
-const plans = [
-  {
-    name: "Старт",
-    price: "€90",
-    period: "первая консультация",
-    description:
-      "Подходит для знакомства с подходом, первичной оценки тела и определения стратегии работы.",
-    features: [
-      "Разбор целей и запроса",
-      "Оценка состояния тела",
-      "Первичная стратегия тренировок",
-      "Рекомендации по нагрузке",
-    ],
-    popular: false,
-  },
-  {
-    name: "Персонально",
-    price: "€250",
-    period: "индивидуальный формат",
-    description:
-      "Оптимальный вариант для системной работы над телом, движением, силой и качеством результата.",
-    features: [
-      "Индивидуальная программа",
-      "Функциональный и силовой тренинг",
-      "Коррекция слабых звеньев",
-      "Контроль техники и прогресса",
-      "Адаптация нагрузки под состояние",
-      "Поддержка между сессиями",
-    ],
-    popular: true,
-  },
-  {
-    name: "Сопровождение",
-    price: "€490",
-    period: "расширенный формат",
-    description:
-      "Для тех, кому нужен глубокий процесс трансформации с регулярной корректировкой программы.",
-    features: [
-      "Полная диагностика движения",
-      "Персональная система тренировок",
-      "Работа с осанкой и компенсациями",
-      "Контроль восстановления",
-      "Долгосрочная стратегия результата",
-    ],
-    popular: false,
-  },
+const productFeatures = [
+  "Персональный разбор целей и текущего состояния тела",
+  "Оценка движения, слабых звеньев и компенсаций",
+  "Индивидуальная стратегия тренировок",
+  "Функциональный и силовой тренинг под ваш уровень",
+  "Коррекция техники, нагрузки и прогресса",
+  "Рекомендации по восстановлению и устойчивому результату",
 ];
 
 const AppSection = () => {
@@ -186,7 +147,7 @@ const AppSection = () => {
                 delay={220}
                 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-primary-foreground mb-6 leading-tight"
               >
-                Виктория Примасюк — эксперт в области трансформации тела,
+                Я — Виктория Примасюк, эксперт в области трансформации тела,
                 преподаватель и специалист по функциональному движению с более
                 чем 15-летним опытом.
               </Reveal>
@@ -196,16 +157,16 @@ const AppSection = () => {
                 className="space-y-5 text-primary-foreground/85 text-base leading-[1.7] max-w-2xl mx-auto lg:mx-0"
               >
                 <p>
-                  Выпускница и преподаватель Национального университета
-                  физического воспитания и спорта Украины. Свою практику
-                  Виктория выстроила на стыке спорта, науки и восстановительной
-                  медицины — объединив силовой тренинг, биомеханику и
-                  физиотерапию в единую систему работы с телом.
+                  Я выпускница и преподаватель Национального университета
+                  физического воспитания и спорта Украины. Свою практику я
+                  выстроила на стыке спорта, науки и восстановительной медицины
+                  — объединив силовой тренинг, биомеханику и физиотерапию в
+                  единую систему работы с телом.
                 </p>
 
                 <p>
-                  Сегодня Виктория ведёт частную практику в Милане — одном из
-                  ключевых европейских центров фитнеса и эстетики, работая с
+                  Сегодня я веду частную практику в Милане — одном из ключевых
+                  европейских центров фитнеса и эстетики. Я работаю с
                   требовательной аудиторией, для которой важен не только
                   результат, но и качество процесса.
                 </p>
@@ -255,7 +216,6 @@ const AppSection = () => {
         id="results"
         className="relative bg-[#ffd6e7] py-12 sm:py-16 lg:py-24 overflow-hidden"
       >
-        {/* Lightweight decorative curls */}
         <div className="absolute left-[8%] top-[70px] text-brand-lime opacity-70 rotate-12 text-5xl pointer-events-none">
           〰
         </div>
@@ -357,91 +317,110 @@ const BenefitsSection = () => {
       </div>
 
       <section className="section-blue pt-32 pb-24 px-4 relative z-20 overflow-hidden">
-        <div className="text-center mb-20">
-          <Reveal
-            as="h2"
-            className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground"
-          >
-            Выберите формат работы
-          </Reveal>
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-14 lg:mb-16">
+            <Reveal
+              as="h2"
+              className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground"
+            >
+              Индивидуальная программа
+            </Reveal>
 
-          <Reveal
-            as="p"
-            delay={120}
-            className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
-          >
-            Начните с консультации или выберите индивидуальное сопровождение
-            для системной трансформации тела.
-          </Reveal>
-        </div>
+            <Reveal
+              as="p"
+              delay={120}
+              className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
+            >
+              Один формат работы: персональная диагностика, стратегия и
+              сопровождение для системной трансформации тела.
+            </Reveal>
+          </div>
 
-        <div className="mx-auto grid w-full max-w-sm grid-cols-1 gap-6 md:max-w-6xl md:grid-cols-3 lg:gap-8 items-stretch">
-          {plans.map((plan, i) => (
-            <Reveal key={i} delay={i * 100} className="relative h-full w-full">
-              <div
-                className={`relative h-full rounded-3xl p-8 flex flex-col transition-transform duration-300 ${
-                  plan.popular
-                    ? "bg-brand-lime text-brand-blue-dark shadow-2xl"
-                    : "bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border border-primary-foreground/20"
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-heading font-bold tracking-widest px-6 py-1.5 rounded-full uppercase whitespace-nowrap">
-                    Популярный формат
+          <Reveal delay={180}>
+            <div className="mx-auto max-w-5xl rounded-[32px] bg-primary-foreground text-primary p-6 sm:p-8 lg:p-10 shadow-2xl">
+              <div className="grid lg:grid-cols-[1fr_0.8fr] gap-8 lg:gap-12 items-stretch">
+                <div className="flex flex-col">
+                  <div className="mb-6 inline-flex w-fit rounded-full bg-brand-lime px-5 py-2 font-heading font-bold uppercase tracking-[0.14em] text-xs text-brand-blue-dark">
+                    Основной продукт
                   </div>
-                )}
 
-                <h3 className="heading-hero text-3xl mb-2">{plan.name}</h3>
+                  <h3 className="heading-hero text-4xl sm:text-5xl lg:text-6xl leading-[0.95] mb-5">
+                    Трансформация тела
+                  </h3>
 
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="heading-hero text-5xl">{plan.price}</span>
+                  <p className="text-primary/75 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+                    Программа строится вокруг вашего тела, уровня подготовки,
+                    целей и ограничений. Это не набор тренировок, а понятная
+                    система: диагностика → стратегия → регулярная корректировка.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                    {productFeatures.map((feature) => (
+                      <div key={feature} className="flex gap-3 items-start">
+                        <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-lime">
+                          <Check className="h-4 w-4 text-brand-blue-dark" />
+                        </div>
+
+                        <p className="text-sm sm:text-base leading-snug text-primary/85">
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="text-sm text-primary/55 leading-relaxed mt-auto">
+                    Оплата и доступ к продукту будут проходить через Telegram /
+                    Tribute. Ссылка подключается после финального согласования
+                    формата.
+                  </p>
                 </div>
 
-                <p
-                  className={`text-sm mb-4 ${
-                    plan.popular
-                      ? "text-brand-blue-dark/70"
-                      : "text-primary-foreground/50"
-                  }`}
-                >
-                  {plan.period}
-                </p>
+                <div className="rounded-[28px] bg-[#ffd6e7] p-6 sm:p-8 flex flex-col justify-between">
+                  <div>
+                    <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/60 text-sm mb-4">
+                      Формат
+                    </p>
 
-                <p
-                  className={`text-sm mb-6 leading-relaxed ${
-                    plan.popular
-                      ? "text-brand-blue-dark/80"
-                      : "text-primary-foreground/70"
-                  }`}
-                >
-                  {plan.description}
-                </p>
+                    <h4 className="heading-hero text-3xl sm:text-4xl text-primary mb-4">
+                      Персональное сопровождение
+                    </h4>
 
-                <ul className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm">
-                      <Check
-                        className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                          plan.popular ? "text-primary" : "text-brand-lime"
-                        }`}
-                      />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                    <p className="text-primary/70 text-sm sm:text-base leading-relaxed mb-8">
+                      Для тех, кто хочет выстроить тело системно: сила,
+                      функциональность, эстетика, контроль движения и устойчивый
+                      результат.
+                    </p>
 
-                <button
-                  className={`w-full py-3 rounded-full font-heading font-bold uppercase tracking-wider text-sm transition-transform duration-300 hover:scale-[1.02] ${
-                    plan.popular
-                      ? "bg-primary text-primary-foreground hover:shadow-xl"
-                      : "bg-brand-lime text-brand-blue-dark hover:shadow-lg"
-                  }`}
-                >
-                  Записаться
-                </button>
+                    <div className="border-t border-primary/15 pt-6 mb-8">
+                      <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/60 text-sm mb-2">
+                        Стоимость
+                      </p>
+
+                      <div className="flex items-end gap-2">
+                        <span className="heading-hero text-5xl sm:text-6xl text-primary">
+                          €490
+                        </span>
+                      </div>
+
+                      <p className="mt-2 text-sm text-primary/60">
+                        итоговую стоимость можно заменить после утверждения
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://t.me/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-brand-lime px-6 font-heading font-bold uppercase tracking-[0.14em] text-brand-blue-dark transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    Перейти к оплате
+                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </div>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>
