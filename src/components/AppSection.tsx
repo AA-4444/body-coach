@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { Check, Award, ArrowRight } from "lucide-react";
+import { Check, Award, ArrowRight, Star } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/trainer-lunges.jpg";
@@ -26,13 +26,66 @@ const resultItems = [
   },
 ];
 
-const productFeatures = [
-  "Персональный разбор целей и текущего состояния тела",
-  "Оценка движения, слабых звеньев и компенсаций",
-  "Индивидуальная стратегия тренировок",
-  "Функциональный и силовой тренинг под ваш уровень",
-  "Коррекция техники, нагрузки и прогресса",
-  "Рекомендации по восстановлению и устойчивому результату",
+const plans = [
+  {
+    label: "Старт",
+    name: "Моё тело. Мои правила",
+    format: "Закрытый Telegram-канал",
+    price: "€29",
+    period: "/ месяц",
+    topBar: "bg-[#ffd6e7]",
+    card: "bg-primary-foreground text-primary border-primary/10",
+    button: "bg-primary text-primary-foreground",
+    features: [
+      "Видеоуроки по женскому похудению",
+      "Питание, гормоны, цикл — с научной базой",
+      "Реальные результаты подписчиц",
+      "Закрытые эфиры раз в месяц",
+      "Чат с сообществом",
+    ],
+    guarantee: "Если не понравится — вернём деньги за первый месяц",
+    popular: false,
+  },
+  {
+    label: "Популярный",
+    name: "Стройность за 30 дней",
+    format: "Программа через Telegram-бот",
+    price: "€99",
+    period: "/ 4 недели",
+    topBar: "bg-brand-lime",
+    card: "bg-[#ffd6e7] text-primary border-brand-lime",
+    button: "bg-brand-lime text-brand-blue-dark",
+    features: [
+      "Эксклюзивные видеоуроки с техникой",
+      "Программа под твои параметры",
+      "Тренировки + питание по науке",
+      "Прогрессия нагрузки по неделям",
+      "Трекер замеров внутри бота",
+      "Доступ к каналу включён",
+    ],
+    guarantee: "Результат за 30 дней — или продлим бесплатно",
+    popular: true,
+  },
+  {
+    label: "Премиум",
+    name: "Идеальная женщина",
+    format: "Личный коучинг с Викторией",
+    price: "€499",
+    period: "/ месяц",
+    topBar: "bg-[#ffd6e7]",
+    card: "bg-primary-foreground text-primary border-primary/10",
+    button: "bg-primary text-primary-foreground",
+    features: [
+      "Персональные видеоуроки от Виктории",
+      "Диагностика тела и биомеханики",
+      "Программа под твою цель и образ жизни",
+      "Еженедельная корректировка",
+      "Разбор видео техники",
+      "Личный чат с Викторией",
+    ],
+    guarantee: "Гарантия видимого результата за 30 дней",
+    popular: false,
+  },
 ];
 
 const AppSection = () => {
@@ -288,12 +341,12 @@ const AppSection = () => {
         </div>
       </section>
 
-      <BenefitsSection />
+      <PricingSection />
     </section>
   );
 };
 
-const BenefitsSection = () => {
+const PricingSection = () => {
   return (
     <div id="pricing" className="relative">
       <div className="absolute -top-[120px] left-0 w-full">
@@ -317,13 +370,13 @@ const BenefitsSection = () => {
       </div>
 
       <section className="section-blue pt-32 pb-24 px-4 relative z-20 overflow-hidden">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="text-center mb-14 lg:mb-16">
             <Reveal
               as="h2"
               className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground"
             >
-              Индивидуальная программа
+              Форматы подписки
             </Reveal>
 
             <Reveal
@@ -331,96 +384,117 @@ const BenefitsSection = () => {
               delay={120}
               className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
             >
-              Один формат работы: персональная диагностика, стратегия и
-              сопровождение для системной трансформации тела.
+              Выберите формат: закрытый канал, программа через Telegram-бот или
+              персональный коучинг с Викторией.
             </Reveal>
           </div>
 
-          <Reveal delay={180}>
-            <div className="mx-auto max-w-5xl rounded-[32px] bg-primary-foreground text-primary p-6 sm:p-8 lg:p-10 shadow-2xl">
-              <div className="grid lg:grid-cols-[1fr_0.8fr] gap-8 lg:gap-12 items-stretch">
-                <div className="flex flex-col">
-                  <div className="mb-6 inline-flex w-fit rounded-full bg-brand-lime px-5 py-2 font-heading font-bold uppercase tracking-[0.14em] text-xs text-brand-blue-dark">
-                    Основной продукт
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {plans.map((plan, index) => (
+              <Reveal key={plan.name} delay={index * 100} className="h-full">
+                <div className="relative h-full pt-5">
+                  {plan.popular && (
+                    <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-full bg-brand-lime px-6 py-2.5 font-heading font-bold uppercase tracking-[0.14em] text-[11px] text-brand-blue-dark shadow-lg whitespace-nowrap">
+                      Популярный
+                    </div>
+                  )}
 
-                  <h3 className="heading-hero text-4xl sm:text-5xl lg:text-6xl leading-[0.95] mb-5">
-                    Трансформация тела
-                  </h3>
+                  <article
+                    className={`relative h-full overflow-hidden rounded-[32px] border shadow-2xl ${
+                      plan.card
+                    } ${
+                      plan.popular
+                        ? "border-[2px] border-brand-lime"
+                        : "border-primary/10"
+                    }`}
+                  >
+                    <div
+                      className={`absolute left-0 right-0 top-0 h-3 ${plan.topBar}`}
+                    />
 
-                  <p className="text-primary/75 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
-                    Программа строится вокруг вашего тела, уровня подготовки,
-                    целей и ограничений. Это не набор тренировок, а понятная
-                    система: диагностика → стратегия → регулярная корректировка.
-                  </p>
+                    <div className="flex h-full flex-col p-6 pt-10 sm:p-8 sm:pt-12">
+                      <div className="mb-6">
+                        <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/55 text-xs mb-3">
+                          {plan.label}
+                        </p>
 
-                  <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                    {productFeatures.map((feature) => (
-                      <div key={feature} className="flex gap-3 items-start">
-                        <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-lime">
-                          <Check className="h-4 w-4 text-brand-blue-dark" />
-                        </div>
+                        <h3 className="heading-hero text-3xl sm:text-4xl leading-[0.95] mb-3">
+                          {plan.name}
+                        </h3>
 
-                        <p className="text-sm sm:text-base leading-snug text-primary/85">
-                          {feature}
+                        <p className="text-primary/60 text-sm italic">
+                          {plan.format}
                         </p>
                       </div>
-                    ))}
-                  </div>
 
-                  <p className="text-sm text-primary/55 leading-relaxed mt-auto">
-                    Оплата и доступ к продукту будут проходить через Telegram /
-                    Tribute. Ссылка подключается после финального согласования
-                    формата.
-                  </p>
-                </div>
+                      <div className="mb-6">
+                        <div className="flex items-end gap-2">
+                          <span className="heading-hero text-5xl sm:text-6xl">
+                            {plan.price}
+                          </span>
 
-                <div className="rounded-[28px] bg-[#ffd6e7] p-6 sm:p-8 flex flex-col justify-between">
-                  <div>
-                    <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/60 text-sm mb-4">
-                      Формат
-                    </p>
-
-                    <h4 className="heading-hero text-3xl sm:text-4xl text-primary mb-4">
-                      Персональное сопровождение
-                    </h4>
-
-                    <p className="text-primary/70 text-sm sm:text-base leading-relaxed mb-8">
-                      Для тех, кто хочет выстроить тело системно: сила,
-                      функциональность, эстетика, контроль движения и устойчивый
-                      результат.
-                    </p>
-
-                    <div className="border-t border-primary/15 pt-6 mb-8">
-                      <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/60 text-sm mb-2">
-                        Стоимость
-                      </p>
-
-                      <div className="flex items-end gap-2">
-                        <span className="heading-hero text-5xl sm:text-6xl text-primary">
-                          €490
-                        </span>
+                          <span className="pb-2 text-sm text-primary/55">
+                            {plan.period}
+                          </span>
+                        </div>
                       </div>
 
-                      <p className="mt-2 text-sm text-primary/60">
-                        итоговую стоимость можно заменить после утверждения
-                      </p>
-                    </div>
-                  </div>
+                      <ul className="space-y-3 mb-8 flex-1">
+                        {plan.features.map((feature, featureIndex) => {
+                          const isFeatured = plan.popular && featureIndex < 2;
 
-                  <a
-                    href="https://t.me/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-brand-lime px-6 font-heading font-bold uppercase tracking-[0.14em] text-brand-blue-dark transition-transform duration-300 hover:scale-[1.02]"
-                  >
-                    Перейти к оплате
-                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </a>
+                          return (
+                            <li
+                              key={feature}
+                              className="flex gap-3 items-start"
+                            >
+                              <div
+                                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                                  isFeatured
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-brand-lime text-brand-blue-dark"
+                                }`}
+                              >
+                                {isFeatured ? (
+                                  <Star className="h-3.5 w-3.5 fill-current" />
+                                ) : (
+                                  <Check className="h-3.5 w-3.5" />
+                                )}
+                              </div>
+
+                              <span className="text-sm sm:text-base leading-snug text-primary/80">
+                                {feature}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+
+                      <div
+                        className={`rounded-2xl px-4 py-3 mb-6 ${
+                          plan.popular ? "bg-white/55" : "bg-[#f3ebff]"
+                        }`}
+                      >
+                        <p className="text-xs sm:text-sm leading-snug text-primary/65">
+                          {plan.guarantee}
+                        </p>
+                      </div>
+
+                      <a
+                        href="https://t.me/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`group mt-auto inline-flex h-[52px] w-full items-center justify-center gap-3 rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${plan.button}`}
+                      >
+                        Перейти к оплате
+
+                      </a>
+                    </div>
+                  </article>
                 </div>
-              </div>
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>
