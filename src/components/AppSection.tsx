@@ -8,7 +8,7 @@ import workoutCaseImg from "@/assets/workout.jpg";
 import workoutCaseImg1 from "@/assets/workout1.jpg";
 
 const formLink = "https://forms.gle/9ToVmFWRx9kcAkMi6";
-const tributeLink = "https://t.me/tribute/app?startapp=sWib";
+const tributeLink = "https://t.me/tribute/app?startapp=sWlo";
 
 const resultItems = [
   {
