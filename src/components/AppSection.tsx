@@ -1,11 +1,14 @@
 import { Reveal } from "@/components/Reveal";
-import { Check, Award, ArrowRight, Star } from "lucide-react";
+import { Check, Award, Star } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/trainer-lunges.jpg";
 import trainerImg from "@/assets/trainer-lunges.jpg";
 import workoutCaseImg from "@/assets/workout.jpg";
 import workoutCaseImg1 from "@/assets/workout1.jpg";
+
+const formLink = "https://forms.gle/9ToVmFWRx9kcAkMi6";
+const tributePlaceholderLink = "https://t.me/tribute/app?startapp=sWib";
 
 const resultItems = [
   {
@@ -36,6 +39,7 @@ const plans = [
     topBar: "bg-[#ffd6e7]",
     card: "bg-primary-foreground text-primary border-primary/10",
     button: "bg-primary text-primary-foreground",
+    href: tributePlaceholderLink,
     features: [
       "Видеоуроки по женскому похудению",
       "Питание, гормоны, цикл — с научной базой",
@@ -55,6 +59,7 @@ const plans = [
     topBar: "bg-brand-lime",
     card: "bg-[#ffd6e7] text-primary border-brand-lime",
     button: "bg-brand-lime text-brand-blue-dark",
+    href: formLink,
     features: [
       "Эксклюзивные видеоуроки с техникой",
       "Программа под твои параметры",
@@ -75,6 +80,7 @@ const plans = [
     topBar: "bg-[#ffd6e7]",
     card: "bg-primary-foreground text-primary border-primary/10",
     button: "bg-primary text-primary-foreground",
+    href: formLink,
     features: [
       "Персональные видеоуроки от Виктории",
       "Диагностика тела и биомеханики",
@@ -481,13 +487,12 @@ const PricingSection = () => {
                       </div>
 
                       <a
-                        href="https://t.me/"
+                        href={plan.href}
                         target="_blank"
                         rel="noreferrer"
-                        className={`group mt-auto inline-flex h-[52px] w-full items-center justify-center gap-3 rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${plan.button}`}
+                        className={`group mt-auto inline-flex h-[52px] w-full items-center justify-center rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${plan.button}`}
                       >
-                        Перейти к оплате
-
+                        Напиши мне
                       </a>
                     </div>
                   </article>
