@@ -71,7 +71,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className="mx-auto grid max-w-[360px] grid-cols-1 gap-3 sm:max-w-[720px] sm:grid-cols-2"
+            className="mx-auto flex max-w-[360px] justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -80,14 +80,7 @@ const HeroSection = () => {
               href="#pricing"
               className="btn-lime-large inline-flex h-[56px] w-full items-center justify-center px-6 text-center"
             >
-              Выбрать свой формат
-            </a>
-
-            <a
-              href="#about"
-              className="btn-lime-large inline-flex h-[56px] w-full items-center justify-center bg-primary text-primary-foreground px-6 text-center hover:bg-primary"
-            >
-              Узнать о подходе
+              Выбрать формат
             </a>
           </motion.div>
         </div>

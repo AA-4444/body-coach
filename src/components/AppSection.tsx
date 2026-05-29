@@ -1,11 +1,12 @@
 import { Reveal } from "@/components/Reveal";
-import { Check, Award, Star, Send } from "lucide-react";
+import { Check, Award, Star } from "lucide-react";
 
 import workoutImg from "@/assets/workout-tablet.jpg";
 import mealImg from "@/assets/trainer-lunges.jpg";
 import trainerImg from "@/assets/trainer-lunges.jpg";
 import workoutCaseImg from "@/assets/workout.jpg";
 import workoutCaseImg1 from "@/assets/workout1.jpg";
+import telegramLogo from "@/assets/telegram-logo.svg";
 
 const formLink = "https://forms.gle/9ToVmFWRx9kcAkMi6";
 const tributeLink = "https://t.me/tribute/app?startapp=sWlo";
@@ -40,7 +41,7 @@ const plans = [
     card: "bg-[#2AABEE] text-white border-white/10",
     button: "bg-white text-[#1788bd]",
     href: tributeLink,
-    cta: "Войти в закрытый канал",
+    cta: "Body Coach 29€",
     isTelegram: true,
     features: [
       "Видеоуроки по женскому телу — питание, гормоны, цикл",
@@ -444,8 +445,14 @@ const PricingSection = () => {
                       className={`absolute left-0 right-0 top-0 h-3 ${plan.topBar}`}
                     />
 
-                    <div className="flex h-full flex-col p-6 pt-10 sm:p-8 sm:pt-12">
-                      <div className="mb-6">
+                    <div
+                      className={`flex h-full flex-col ${
+                        plan.isTelegram
+                          ? "p-5 pt-8 lg:p-8 lg:pt-12"
+                          : "p-6 pt-10 sm:p-8 sm:pt-12"
+                      }`}
+                    >
+                      <div className={plan.isTelegram ? "mb-5 lg:mb-6" : "mb-6"}>
                         <p
                           className={`font-heading font-bold uppercase tracking-[0.14em] text-xs mb-3 ${
                             plan.isTelegram ? "text-white/70" : "text-primary/55"
@@ -454,7 +461,13 @@ const PricingSection = () => {
                           {plan.label}
                         </p>
 
-                        <h3 className="heading-hero text-3xl sm:text-4xl leading-[0.95] mb-3">
+                        <h3
+                          className={`heading-hero leading-[0.95] mb-3 ${
+                            plan.isTelegram
+                              ? "text-[2rem] lg:text-4xl"
+                              : "text-3xl sm:text-4xl"
+                          }`}
+                        >
                           {plan.name}
                         </h3>
 
@@ -464,16 +477,28 @@ const PricingSection = () => {
                           }`}
                         >
                           {plan.isTelegram && (
-                            <Send className="h-4 w-4 text-white/70" />
+                            <img
+                              src={telegramLogo}
+                              alt=""
+                              className="h-5 w-5 rounded-full"
+                              loading="lazy"
+                              decoding="async"
+                            />
                           )}
 
                           <p className="text-sm italic">{plan.format}</p>
                         </div>
                       </div>
 
-                      <div className="mb-6">
+                      <div className={plan.isTelegram ? "mb-5 lg:mb-6" : "mb-6"}>
                         <div className="flex items-end gap-2">
-                          <span className="heading-hero text-5xl sm:text-6xl">
+                          <span
+                            className={`heading-hero ${
+                              plan.isTelegram
+                                ? "text-5xl lg:text-6xl"
+                                : "text-5xl sm:text-6xl"
+                            }`}
+                          >
                             {plan.price}
                           </span>
 
@@ -487,7 +512,13 @@ const PricingSection = () => {
                         </div>
                       </div>
 
-                      <ul className="space-y-3 mb-8 flex-1">
+                      <ul
+                        className={`flex-1 ${
+                          plan.isTelegram
+                            ? "mb-5 space-y-2.5 lg:mb-8 lg:space-y-3"
+                            : "mb-8 space-y-3"
+                        }`}
+                      >
                         {plan.features.map((feature, featureIndex) => {
                           const isFeatured = plan.popular && featureIndex < 2;
 
@@ -513,9 +544,9 @@ const PricingSection = () => {
                               </div>
 
                               <span
-                                className={`text-sm sm:text-base leading-snug ${
+                                className={`leading-snug ${
                                   plan.isTelegram
-                                    ? "text-white/90"
+                                    ? "text-[15px] text-white/90 lg:text-base"
                                     : "text-primary/80"
                                 }`}
                               >
@@ -548,9 +579,19 @@ const PricingSection = () => {
                         href={plan.href}
                         target="_blank"
                         rel="noreferrer"
-                        className={`group mt-auto inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${plan.button}`}
+                        className={`group mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${
+                          plan.isTelegram ? "h-[48px] lg:h-[52px]" : "h-[52px]"
+                        } ${plan.button}`}
                       >
-                        {plan.isTelegram && <Send className="h-5 w-5" />}
+                        {plan.isTelegram && (
+                          <img
+                            src={telegramLogo}
+                            alt=""
+                            className="h-6 w-6 rounded-full"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        )}
                         {plan.cta}
                       </a>
                     </div>
