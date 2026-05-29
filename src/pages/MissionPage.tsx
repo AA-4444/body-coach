@@ -218,8 +218,8 @@ const MissionPage = () => {
           </motion.div>
         </div>
 
-        <div className="absolute left-0 right-0 bottom-0 pointer-events-none">
-          <svg viewBox="0 0 1440 120" className="w-full h-[90px] lg:h-[120px] block" preserveAspectRatio="none">
+        <div className="absolute -bottom-px left-0 right-0 bg-[#f5f5f3] pointer-events-none">
+          <svg viewBox="0 0 1440 120" className="block h-[92px] w-full translate-y-px lg:h-[122px]" preserveAspectRatio="none">
             <path
               d="M0,85 C80,20 150,20 230,85 C310,20 380,20 460,85 C540,20 610,20 690,85 C770,20 840,20 920,85 C1000,20 1070,20 1150,85 C1230,20 1310,20 1440,85 L1440,120 L0,120 Z"
               fill="#f5f5f3"

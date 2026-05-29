@@ -63,9 +63,9 @@ const TestimonialsSection = () => {
 
   return (
     <section id="testimonials" className="w-full">
-      <div className="relative overflow-hidden bg-testimonial-bg py-20 md:py-24 lg:py-32">
+      <div className="relative overflow-hidden bg-testimonial-bg pt-20 md:pt-24 lg:pt-32">
         {/* Decorative blue blob - left */}
-        <div className="absolute -left-20 top-1/2 -translate-y-1/2 pointer-events-none">
+        <div className="absolute -left-28 top-1/2 -translate-y-1/2 pointer-events-none opacity-60 sm:-left-20 sm:opacity-100">
           <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
             <ellipse
               cx="100"
@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Decorative peach swirl - right */}
-        <div className="absolute -right-16 top-1/4 pointer-events-none">
+        <div className="absolute -right-24 top-8 pointer-events-none opacity-45 sm:-right-16 sm:top-1/4 sm:opacity-100">
           <svg width="300" height="400" viewBox="0 0 300 400" fill="none">
             <path
               d="M150 50 C250 50, 280 150, 200 200 C120 250, 250 300, 250 350"
@@ -115,7 +115,7 @@ const TestimonialsSection = () => {
         </h2>
 
         {/* Quote carousel */}
-        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 md:px-16 min-h-[320px] md:min-h-[280px] lg:min-h-[320px]">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 md:px-16 min-h-[340px] md:min-h-[320px] lg:min-h-[360px]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeSlide}
@@ -129,15 +129,15 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="cursor-grab active:cursor-grabbing touch-pan-y"
             >
-              <div className="text-6xl md:text-7xl lg:text-8xl font-serif text-testimonial-dot/30 leading-none mb-4 md:mb-6">
+              <div className="text-6xl md:text-8xl lg:text-9xl font-serif text-testimonial-dot/30 leading-none mb-4 md:mb-6">
                 &ldquo;
               </div>
 
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] leading-relaxed text-testimonial-quote font-medium mb-6 md:mb-8 max-w-3xl">
+              <p className="text-xl sm:text-2xl md:text-4xl lg:text-[2.75rem] leading-relaxed text-testimonial-quote font-medium mb-6 md:mb-8 max-w-4xl">
                 {testimonials[activeSlide].quote}
               </p>
 
-              <p className="text-lg md:text-xl lg:text-2xl font-bold text-testimonial-name">
+              <p className="text-lg md:text-2xl lg:text-3xl font-bold text-testimonial-name">
                 {testimonials[activeSlide].name}
               </p>
             </motion.div>
@@ -147,7 +147,7 @@ const TestimonialsSection = () => {
         {/* Navigation arrows - only desktop/tablet */}
         <button
           onClick={goPrev}
-          className="hidden md:flex absolute left-1/2 -translate-x-[420px] lg:-translate-x-[520px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
+          className="hidden md:flex absolute left-1/2 -translate-x-[480px] lg:-translate-x-[600px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
           aria-label="Предыдущий отзыв"
         >
           <ChevronLeft className="w-6 h-6 lg:w-7 lg:h-7 text-testimonial-arrow-foreground" />
@@ -155,7 +155,7 @@ const TestimonialsSection = () => {
 
         <button
           onClick={goNext}
-          className="hidden md:flex absolute left-1/2 translate-x-[420px] lg:translate-x-[520px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
+          className="hidden md:flex absolute left-1/2 translate-x-[480px] lg:translate-x-[600px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-testimonial-arrow items-center justify-center shadow-lg hover:scale-105 transition-transform"
           aria-label="Следующий отзыв"
         >
           <ChevronRight className="w-6 h-6 lg:w-7 lg:h-7 text-testimonial-arrow-foreground" />
@@ -175,6 +175,21 @@ const TestimonialsSection = () => {
               aria-label={`Перейти к отзыву ${i + 1}`}
             />
           ))}
+        </div>
+
+        <div className="relative z-[4] -mb-px mt-12 md:mt-16">
+          <svg
+            viewBox="0 0 1440 120"
+            className="block h-[78px] w-full md:h-[112px]"
+            preserveAspectRatio="none"
+            fill="none"
+          >
+            <path
+              d="M0,0 C180,40 320,95 520,95 C720,95 860,25 1040,25 C1220,25 1320,70 1440,110 L1440,120 L0,120 Z"
+              fill="hsl(220 80% 12%)"
+            />
+          </svg>
+          <div className="-mt-px h-2 bg-brand-navy" />
         </div>
       </div>
     </section>

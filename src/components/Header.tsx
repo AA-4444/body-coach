@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, Mail, MessageCircle, Send } from "lucide-react";
 import { getLenis } from "@/lib/lenis";
+import BrandLogo from "@/components/BrandLogo";
 
 const navLinks = [
   { label: "ОБО МНЕ", to: "/#about", hash: "#about" },
@@ -58,13 +59,7 @@ const Header = () => {
         <div className="mx-auto w-full max-w-[1440px] px-5 lg:px-10 xl:px-14">
           <div className="flex items-center justify-between py-3 lg:h-[92px]">
             <Link to="/" className="relative z-[80] flex items-center shrink-0">
-              <div className="w-11 h-11 lg:w-[74px] lg:h-[74px] rounded-full border-2 border-brand-cyan flex items-center justify-center">
-                <span className="font-heading font-black text-[10px] lg:text-[15px] leading-[0.9] text-brand-lime text-center">
-                  body
-                  <br />
-                  coach
-                </span>
-              </div>
+              <BrandLogo className="h-11 w-11 text-[10px] lg:h-[74px] lg:w-[74px] lg:text-[15px]" />
             </Link>
 
             <nav className="hidden lg:flex items-center ml-auto">
@@ -156,13 +151,7 @@ const Header = () => {
               <div className="overflow-hidden rounded-[28px] bg-white shadow-2xl">
                 <div className="flex items-start justify-between px-6 pt-5 pb-3">
                   <Link to="/" className="flex items-center">
-                    <div className="w-12 h-12 rounded-full border-2 border-[#1368de] flex items-center justify-center">
-                      <span className="font-heading font-black text-[10px] leading-tight text-[#1368de] text-center">
-                        body
-                        <br />
-                        coach
-                      </span>
-                    </div>
+                    <BrandLogo className="h-12 w-12 text-[10px]" dark />
                   </Link>
 
                   <button

@@ -46,7 +46,7 @@ const NewsletterSection = () => {
               </p>
 
               <p className="font-heading text-lg text-foreground group-hover:text-primary transition-colors">
-                @victoria →
+                @victoria
               </p>
             </a>
 
@@ -65,7 +65,7 @@ const NewsletterSection = () => {
               </p>
 
               <p className="font-heading text-lg text-foreground group-hover:text-primary transition-colors">
-                Написать →
+                Написать
               </p>
             </a>
 
@@ -122,10 +122,10 @@ const NewsletterSection = () => {
       </div>
 
       {/* Pink to navy wave */}
-      <div className="bg-[#ffd6e7]">
+      <div className="-mb-px bg-[#ffd6e7]">
         <svg
           viewBox="0 0 1440 120"
-          className="w-full h-[80px] lg:h-[110px] block"
+          className="block h-[82px] w-full translate-y-px lg:h-[112px]"
           preserveAspectRatio="none"
           fill="none"
         >

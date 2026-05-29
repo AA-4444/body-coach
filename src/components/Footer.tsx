@@ -1,9 +1,10 @@
 import { Instagram, Mail, MessageCircle, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
+import BrandLogo from "@/components/BrandLogo";
 
 const navLinks = [
-  { label: "О тренере", to: "/mission" },
+  { label: "О body coach", to: "/mission" },
   { label: "Экспертиза", to: "/work" },
   { label: "Метод", to: "/work#method" },
   { label: "Результаты", to: "/work#results" },
@@ -24,13 +25,7 @@ const Footer = () => {
         <Reveal>
           <div className="flex flex-col items-start">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-14 h-14 rounded-full border-2 border-brand-cyan flex items-center justify-center">
-                <span className="font-heading font-black text-[11px] leading-[0.9] text-brand-lime text-center">
-                  body
-                  <br />
-                  coach
-                </span>
-              </div>
+              <BrandLogo className="h-14 w-14 text-[11px]" />
             </Link>
 
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">

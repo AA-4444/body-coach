@@ -26,23 +26,23 @@ const HeroSection = () => {
 
         {/* Decorative strokes — under the text */}
         <svg
-          className="absolute inset-0 z-[2] w-full h-full pointer-events-none"
+          className="absolute inset-0 z-[2] h-full w-full pointer-events-none opacity-45 sm:opacity-70"
           viewBox="0 0 1400 800"
           preserveAspectRatio="none"
         >
           <path
-            d="M300 700 Q400 200 500 400 Q600 600 700 300"
+            d="M120 720 Q220 520 340 620 Q450 720 560 560"
             stroke="hsl(72 100% 50%)"
-            strokeWidth="12"
+            strokeWidth="10"
             fill="none"
             strokeLinecap="round"
             className="animate-draw-stroke"
             style={{ strokeDasharray: 500 }}
           />
           <path
-            d="M800 200 Q900 500 1000 300 Q1100 100 1200 400"
+            d="M1040 650 Q1130 760 1220 660 Q1300 570 1370 720"
             stroke="hsl(180 100% 45%)"
-            strokeWidth="10"
+            strokeWidth="9"
             fill="none"
             strokeLinecap="round"
             className="animate-draw-stroke"
@@ -66,19 +66,30 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Эксперт по трансформации тела.
-            <br className="block sm:hidden" /> Функциональное движение.
+            Это не тренировки.
+            <br /> Это возвращение к себе.
           </motion.p>
 
-          <motion.a
-            href="#contact"
-            className="btn-lime-large inline-flex items-center justify-center w-full sm:w-auto h-[52px]"
+          <motion.div
+            className="mx-auto grid max-w-[360px] grid-cols-1 gap-3 sm:max-w-[720px] sm:grid-cols-2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            Записаться на консультацию
-          </motion.a>
+            <a
+              href="#pricing"
+              className="btn-lime-large inline-flex h-[56px] w-full items-center justify-center px-6 text-center"
+            >
+              Выбрать свой формат
+            </a>
+
+            <a
+              href="#about"
+              className="btn-lime-large inline-flex h-[56px] w-full items-center justify-center bg-primary text-primary-foreground px-6 text-center hover:bg-primary"
+            >
+              Узнать о подходе
+            </a>
+          </motion.div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 z-[3]">

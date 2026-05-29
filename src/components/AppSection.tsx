@@ -31,25 +31,24 @@ const resultItems = [
 
 const plans = [
   {
-    label: "Старт",
+    label: "🔥 Начни здесь · самый доступный вход",
     name: "Моё тело. Мои правила",
-    format: "Закрытый Telegram-канал",
+    format: "@victoria_bodycoach — закрытый канал",
     price: "€29",
-    period: "/ месяц",
-    topBar: "bg-[#ffd6e7]",
-    card: "bg-primary-foreground text-primary border-primary/10",
-    button: "bg-primary text-primary-foreground",
+    period: "/ месяц · отмена в любое время",
+    topBar: "bg-white/20",
+    card: "bg-[#2AABEE] text-white border-white/10",
+    button: "bg-white text-[#1788bd]",
     href: tributeLink,
-    cta: "Подписаться",
+    cta: "Войти в закрытый канал",
     isTelegram: true,
     features: [
-      "Видеоуроки по женскому похудению",
-      "Питание, гормоны, цикл — с научной базой",
-      "Реальные результаты подписчиц",
-      "Закрытые эфиры раз в месяц",
-      "Чат с сообществом",
+      "Видеоуроки по женскому телу — питание, гормоны, цикл",
+      "Научный подход без мифов и «универсальных диет»",
+      "Реальные трансформации подписчиц каждую неделю",
+      "Прямой доступ к знаниям Виктории — из Милана, каждый день",
     ],
-    guarantee: "Если не понравится — вернём деньги за первый месяц",
+    guarantee: "342 подписчицы уже внутри · новые материалы каждую неделю",
     popular: false,
   },
   {
@@ -62,7 +61,7 @@ const plans = [
     card: "bg-[#ffd6e7] text-primary border-brand-lime",
     button: "bg-brand-lime text-brand-blue-dark",
     href: formLink,
-    cta: "Напиши мне",
+    cta: "Хочу мою программу",
     isTelegram: false,
     features: [
       "Эксклюзивные видеоуроки с техникой",
@@ -85,7 +84,7 @@ const plans = [
     card: "bg-primary-foreground text-primary border-primary/10",
     button: "bg-primary text-primary-foreground",
     href: formLink,
-    cta: "Напиши мне",
+    cta: "Записаться к Виктории",
     isTelegram: false,
     features: [
       "Персональные видеоуроки от Виктории",
@@ -127,20 +126,20 @@ const AppSection = () => {
         </svg>
 
         <div className="relative">
-          <div className="absolute left-[10%] top-[180px] text-brand-lime opacity-70 rotate-12 text-5xl">
+          <div className="absolute left-[8%] top-[120px] text-brand-lime opacity-40 rotate-12 text-4xl pointer-events-none sm:text-5xl md:left-[10%] md:top-[180px] md:opacity-70">
             〰
           </div>
 
-          <div className="absolute right-[12%] top-[200px] text-brand-cyan opacity-70 -rotate-12 text-5xl">
+          <div className="absolute right-[8%] top-[320px] text-brand-cyan opacity-35 -rotate-12 text-4xl pointer-events-none sm:text-5xl md:right-[12%] md:top-[200px] md:opacity-70">
             〰
           </div>
 
-          <div className="absolute left-[45%] top-[320px] text-pink-300 opacity-70 rotate-6 text-4xl">
+          <div className="absolute left-[12%] bottom-[90px] text-pink-300 opacity-35 rotate-6 text-3xl pointer-events-none sm:text-4xl md:left-[45%] md:top-[320px] md:bottom-auto md:opacity-70">
             〰
           </div>
 
           <svg
-            className="absolute left-[22%] top-[140px] w-[120px]"
+            className="absolute left-[4%] top-[260px] w-[82px] opacity-35 pointer-events-none sm:w-[100px] md:left-[22%] md:top-[140px] md:w-[120px] md:opacity-100"
             viewBox="0 0 200 120"
             fill="none"
             stroke="#3ad1c6"
@@ -151,7 +150,7 @@ const AppSection = () => {
           </svg>
 
           <svg
-            className="absolute right-[18%] top-[150px] w-[100px]"
+            className="absolute right-[4%] top-[520px] w-[76px] opacity-30 pointer-events-none sm:w-[90px] md:right-[18%] md:top-[150px] md:w-[100px] md:opacity-100"
             viewBox="0 0 200 140"
             fill="none"
             stroke="#d4ff6a"
@@ -163,7 +162,7 @@ const AppSection = () => {
           </svg>
 
           <svg
-            className="absolute left-[55%] bottom-[60px] w-[120px]"
+            className="absolute left-[62%] bottom-[42px] w-[90px] opacity-30 pointer-events-none sm:w-[110px] md:left-[55%] md:bottom-[60px] md:w-[120px] md:opacity-100"
             viewBox="0 0 200 160"
             fill="none"
             stroke="#3ad1c6"
@@ -204,7 +203,7 @@ const AppSection = () => {
                 delay={140}
                 className="heading-hero text-4xl sm:text-5xl lg:text-7xl text-primary-foreground mb-6"
               >
-                О тренере
+                О body coach
               </Reveal>
 
               <Reveal
@@ -271,6 +270,20 @@ const AppSection = () => {
                   </div>
                 </Reveal>
               </div>
+
+              <Reveal delay={660} className="mt-10 max-w-2xl mx-auto lg:mx-0">
+                <blockquote className="border-l-4 border-brand-lime pl-5 text-xl sm:text-2xl font-heading font-bold italic leading-snug text-primary-foreground">
+                  «Каждая программа — это разговор с твоим телом, а не команда
+                  ему.»
+                </blockquote>
+
+                <a
+                  href="#results"
+                  className="btn-lime mt-6 inline-flex min-h-[48px] items-center justify-center"
+                >
+                  Как мы работаем
+                </a>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -281,20 +294,20 @@ const AppSection = () => {
         id="results"
         className="relative bg-[#ffd6e7] py-12 sm:py-16 lg:py-24 overflow-hidden"
       >
-        <div className="absolute left-[8%] top-[70px] text-brand-lime opacity-70 rotate-12 text-5xl pointer-events-none">
+        <div className="absolute left-[6%] top-[36px] text-brand-lime opacity-35 rotate-12 text-4xl pointer-events-none sm:text-5xl md:left-[8%] md:top-[70px] md:opacity-70">
           〰
         </div>
 
-        <div className="absolute right-[10%] top-[140px] text-brand-cyan opacity-70 -rotate-12 text-5xl pointer-events-none">
+        <div className="absolute right-[6%] top-[220px] text-brand-cyan opacity-35 -rotate-12 text-4xl pointer-events-none sm:text-5xl md:right-[10%] md:top-[140px] md:opacity-70">
           〰
         </div>
 
-        <div className="absolute left-[45%] bottom-[80px] text-pink-400 opacity-50 rotate-6 text-4xl pointer-events-none">
+        <div className="absolute left-[48%] bottom-[42px] text-pink-400 opacity-30 rotate-6 text-3xl pointer-events-none sm:text-4xl md:bottom-[80px] md:opacity-50">
           〰
         </div>
 
         <svg
-          className="absolute left-[18%] top-[120px] w-[110px] opacity-70 pointer-events-none"
+          className="absolute left-[4%] top-[160px] w-[80px] opacity-25 pointer-events-none sm:w-[100px] md:left-[18%] md:top-[120px] md:w-[110px] md:opacity-70"
           viewBox="0 0 200 120"
           fill="none"
           stroke="#3ad1c6"
@@ -305,7 +318,7 @@ const AppSection = () => {
         </svg>
 
         <svg
-          className="absolute right-[16%] bottom-[90px] w-[120px] opacity-70 pointer-events-none"
+          className="absolute right-[4%] bottom-[48px] w-[88px] opacity-25 pointer-events-none sm:w-[110px] md:right-[16%] md:bottom-[90px] md:w-[120px] md:opacity-70"
           viewBox="0 0 200 160"
           fill="none"
           stroke="#d4ff6a"
@@ -319,10 +332,18 @@ const AppSection = () => {
           <div className="px-4 sm:px-8 lg:px-12 mb-10 lg:mb-16">
             <Reveal
               as="h2"
-              className="font-display text-primary text-3xl sm:text-5xl lg:text-6xl max-w-4xl uppercase leading-[1.05]"
+              className="font-display text-primary text-2xl sm:text-5xl lg:text-6xl max-w-4xl uppercase leading-[1.05]"
             >
-              Работа с Викторией - это не быстрый эффект, а системная
-              трансформация.
+              Ты уже была такой. Мы просто возвращаем это тело тебе.
+            </Reveal>
+
+            <Reveal delay={120}>
+              <a
+                href="#pricing"
+                className="btn-lime mt-6 inline-flex min-h-[48px] items-center justify-center"
+              >
+                Хочу так же
+              </a>
             </Reveal>
           </div>
 
@@ -381,7 +402,7 @@ const PricingSection = () => {
         </svg>
       </div>
 
-      <section className="section-blue pt-32 pb-24 px-4 relative z-20 overflow-hidden">
+      <section className="section-blue pt-16 pb-24 px-4 relative z-20 overflow-hidden sm:pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-14 lg:mb-16">
             <Reveal
@@ -396,8 +417,7 @@ const PricingSection = () => {
               delay={120}
               className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
             >
-              Выберите формат: закрытый канал, программа через Telegram-бот или
-              персональный коучинг с Викторией.
+              Начни откуда удобно. Каждый путь ведёт к одному результату.
             </Reveal>
           </div>
 
@@ -426,7 +446,11 @@ const PricingSection = () => {
 
                     <div className="flex h-full flex-col p-6 pt-10 sm:p-8 sm:pt-12">
                       <div className="mb-6">
-                        <p className="font-heading font-bold uppercase tracking-[0.14em] text-primary/55 text-xs mb-3">
+                        <p
+                          className={`font-heading font-bold uppercase tracking-[0.14em] text-xs mb-3 ${
+                            plan.isTelegram ? "text-white/70" : "text-primary/55"
+                          }`}
+                        >
                           {plan.label}
                         </p>
 
@@ -434,9 +458,13 @@ const PricingSection = () => {
                           {plan.name}
                         </h3>
 
-                        <div className="flex items-center gap-2 text-primary/60">
+                        <div
+                          className={`flex items-center gap-2 ${
+                            plan.isTelegram ? "text-white/70" : "text-primary/60"
+                          }`}
+                        >
                           {plan.isTelegram && (
-                            <Send className="h-4 w-4 text-[#229ED9]" />
+                            <Send className="h-4 w-4 text-white/70" />
                           )}
 
                           <p className="text-sm italic">{plan.format}</p>
@@ -449,7 +477,11 @@ const PricingSection = () => {
                             {plan.price}
                           </span>
 
-                          <span className="pb-2 text-sm text-primary/55">
+                          <span
+                            className={`pb-2 text-sm ${
+                              plan.isTelegram ? "text-white/75" : "text-primary/55"
+                            }`}
+                          >
                             {plan.period}
                           </span>
                         </div>
@@ -468,6 +500,8 @@ const PricingSection = () => {
                                 className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
                                   isFeatured
                                     ? "bg-primary text-primary-foreground"
+                                    : plan.isTelegram
+                                    ? "bg-white text-[#2AABEE]"
                                     : "bg-brand-lime text-brand-blue-dark"
                                 }`}
                               >
@@ -478,7 +512,13 @@ const PricingSection = () => {
                                 )}
                               </div>
 
-                              <span className="text-sm sm:text-base leading-snug text-primary/80">
+                              <span
+                                className={`text-sm sm:text-base leading-snug ${
+                                  plan.isTelegram
+                                    ? "text-white/90"
+                                    : "text-primary/80"
+                                }`}
+                              >
                                 {feature}
                               </span>
                             </li>
@@ -488,10 +528,18 @@ const PricingSection = () => {
 
                       <div
                         className={`rounded-2xl px-4 py-3 mb-6 ${
-                          plan.popular ? "bg-white/55" : "bg-[#f3ebff]"
+                          plan.isTelegram
+                            ? "bg-white/15"
+                            : plan.popular
+                            ? "bg-white/55"
+                            : "bg-[#f3ebff]"
                         }`}
                       >
-                        <p className="text-xs sm:text-sm leading-snug text-primary/65">
+                        <p
+                          className={`text-xs sm:text-sm leading-snug ${
+                            plan.isTelegram ? "text-white/75" : "text-primary/65"
+                          }`}
+                        >
                           {plan.guarantee}
                         </p>
                       </div>

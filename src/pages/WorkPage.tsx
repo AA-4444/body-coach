@@ -189,8 +189,8 @@ const WorkPage = () => {
         <div className="absolute right-[-100px] top-0 w-[360px] h-[380px] rounded-full bg-[#efcfd4]/70" />
         <div className="absolute right-[4%] bottom-[-60px] w-[320px] h-[240px] rounded-full bg-[#efcfd4]/70" />
 
-        <div className="absolute left-0 right-0 bottom-0 pointer-events-none">
-          <svg viewBox="0 0 1440 110" className="w-full h-[80px] lg:h-[110px] block" preserveAspectRatio="none">
+        <div className="absolute -bottom-px left-0 right-0 bg-[#f5f5f3] pointer-events-none">
+          <svg viewBox="0 0 1440 110" className="block h-[82px] w-full translate-y-px lg:h-[112px]" preserveAspectRatio="none">
             <path
               d="M0,80 C80,20 150,20 230,80 C310,20 380,20 460,80 C540,20 610,20 690,80 C770,20 840,20 920,80 C1000,20 1070,20 1150,80 C1230,20 1310,20 1440,80 L1440,110 L0,110 Z"
               fill="#f5f5f3"
