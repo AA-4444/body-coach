@@ -6,7 +6,7 @@ import mealImg from "@/assets/trainer-lunges.jpg";
 import trainerImg from "@/assets/trainer-lunges.jpg";
 import workoutCaseImg from "@/assets/workout.jpg";
 import workoutCaseImg1 from "@/assets/workout1.jpg";
-import telegramLogo from "@/assets/telegram-logo.svg";
+import telegramLogo from "@/assets/telegram-logo.png";
 
 const formLink = "https://forms.gle/9ToVmFWRx9kcAkMi6";
 const tributeLink = "https://t.me/tribute/app?startapp=sWlo";
