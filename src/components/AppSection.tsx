@@ -294,7 +294,7 @@ const AppSection = () => {
         id="results"
         className="relative bg-[#ffd6e7] py-12 sm:py-16 lg:py-24 overflow-hidden"
       >
-        <div className="absolute left-[6%] top-[36px] text-brand-lime opacity-35 rotate-12 text-4xl pointer-events-none sm:text-5xl md:left-[8%] md:top-[70px] md:opacity-70">
+        <div className="absolute left-[6%] top-[36px] hidden text-brand-lime opacity-35 rotate-12 text-4xl pointer-events-none sm:block sm:text-5xl md:left-[8%] md:top-[70px] md:opacity-70">
           〰
         </div>
 
