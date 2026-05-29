@@ -307,7 +307,7 @@ const AppSection = () => {
         </div>
 
         <svg
-          className="absolute left-[4%] top-[160px] w-[80px] opacity-25 pointer-events-none sm:w-[100px] md:left-[18%] md:top-[120px] md:w-[110px] md:opacity-70"
+          className="absolute left-[4%] top-[160px] hidden w-[80px] opacity-25 pointer-events-none sm:block sm:w-[100px] md:left-[18%] md:top-[120px] md:w-[110px] md:opacity-70"
           viewBox="0 0 200 120"
           fill="none"
           stroke="#3ad1c6"
