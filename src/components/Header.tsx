@@ -223,7 +223,7 @@ const Header = () => {
                       </a>
 
                       <a
-                        href="@viko_vika_fit"
+                        href="https://t.me/viko_vika_fit"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Telegram"

@@ -81,7 +81,7 @@ const Footer = () => {
              
 
               <a
-                href="@viko_vika_fit"
+                href="https://t.me/viko_vika_fit"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Telegram"
@@ -125,7 +125,14 @@ const Footer = () => {
           </p>
 
           <p className="text-primary-foreground/30 text-xs text-center md:text-right">
-            Точность, глубина и результат, который остаётся.
+            <a
+              href="https://www.veldren.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-brand-lime transition-colors"
+            >
+              made by veldren
+            </a>
           </p>
         </div>
       </Reveal>

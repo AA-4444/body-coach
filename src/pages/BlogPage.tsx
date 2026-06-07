@@ -293,6 +293,28 @@ const BlogPage = () => {
         </div>
       </section>
 
+      <div className="-mb-px bg-[#fff7fb]">
+        <svg
+          viewBox="0 0 1440 120"
+          className="block h-[82px] w-full translate-y-px lg:h-[112px]"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="
+              M0,0
+              C180,40 320,95 520,95
+              C720,95 860,25 1040,25
+              C1220,25 1320,70 1440,110
+              L1440,120
+              L0,120
+              Z
+            "
+            fill="hsl(220 80% 12%)"
+          />
+        </svg>
+      </div>
+
       <Footer />
     </div>
   );
