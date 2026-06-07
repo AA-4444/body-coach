@@ -74,11 +74,11 @@ const stats = [
 
 const WorkPage = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f5f5f3]">
+    <div className="min-h-screen overflow-x-hidden bg-white">
       <Header />
 
      {/* HERO */}
-<section className="relative overflow-hidden bg-[#c9eb7c] min-h-[calc(100vh-92px)] flex items-center">
+<section className="relative overflow-hidden bg-[#ffd6e7] min-h-[calc(100vh-92px)] flex items-center">
   <div className="absolute left-[-160px] bottom-[-120px] w-[560px] h-[560px] rounded-full bg-white/22" />
 
   <div className="absolute right-[-100px] top-0 w-[320px] h-full opacity-60 pointer-events-none">
@@ -109,7 +109,7 @@ const WorkPage = () => {
           <div className="absolute right-[8%] top-[24%] text-pink-300 text-5xl lg:text-6xl -rotate-12 opacity-90 z-20">
             〰
           </div>
-          <div className="absolute right-[2%] bottom-[34%] text-cyan-400 text-6xl lg:text-7xl rotate-12 opacity-90 z-20">
+          <div className="absolute right-[2%] bottom-[34%] text-[#1368de] text-6xl lg:text-7xl rotate-12 opacity-90 z-20">
             〰
           </div>
 
@@ -189,11 +189,11 @@ const WorkPage = () => {
         <div className="absolute right-[-100px] top-0 w-[360px] h-[380px] rounded-full bg-[#efcfd4]/70" />
         <div className="absolute right-[4%] bottom-[-60px] w-[320px] h-[240px] rounded-full bg-[#efcfd4]/70" />
 
-        <div className="absolute -bottom-px left-0 right-0 bg-[#f5f5f3] pointer-events-none">
+        <div className="absolute -bottom-px left-0 right-0 bg-white pointer-events-none">
           <svg viewBox="0 0 1440 110" className="block h-[82px] w-full translate-y-px lg:h-[112px]" preserveAspectRatio="none">
             <path
               d="M0,80 C80,20 150,20 230,80 C310,20 380,20 460,80 C540,20 610,20 690,80 C770,20 840,20 920,80 C1000,20 1070,20 1150,80 C1230,20 1310,20 1440,80 L1440,110 L0,110 Z"
-              fill="#f5f5f3"
+              fill="#ffffff"
             />
           </svg>
         </div>
@@ -231,7 +231,7 @@ const WorkPage = () => {
       </section>
 
       {/* PERFECT FOR HOME */}
-      <section className="bg-[#f5f5f3] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
@@ -249,7 +249,7 @@ const WorkPage = () => {
                   <img src={homeWorkoutImg} alt="Perfect for home" className="w-full h-full object-cover" />
                 </div>
 
-                <div className="absolute left-[44%] top-[-4%] text-cyan-400 text-7xl -rotate-12">〰</div>
+                <div className="absolute left-[44%] top-[-4%] text-[#1368de] text-7xl -rotate-12">〰</div>
                 <div className="absolute right-[16%] top-[34%] text-pink-300 text-6xl rotate-12">〰</div>
               </div>
             </motion.div>
@@ -275,7 +275,7 @@ const WorkPage = () => {
       </section>
 
       {/* FITNESS FOR EVERYONE */}
-      <section className="bg-[#f5f5f3] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
@@ -304,8 +304,8 @@ const WorkPage = () => {
               className="order-1 lg:order-2 relative flex justify-center"
             >
               <div className="relative w-[430px] h-[360px] lg:w-[560px] lg:h-[430px]">
-                <div className="absolute right-[0] top-[0] w-[76%] h-[88%] rounded-full bg-[#20c2cf] border-[14px] border-[#dfe8fb]" />
-                <div className="absolute left-[2%] bottom-[0] w-[56%] h-[56%] rounded-full bg-[#99d7df] border-[12px] border-[#dfe8fb]" />
+                <div className="absolute right-[0] top-[0] w-[76%] h-[88%] rounded-full bg-[#1368de] border-[14px] border-[#dfe8fb]" />
+                <div className="absolute left-[2%] bottom-[0] w-[56%] h-[56%] rounded-full bg-[#dfe8fb] border-[12px] border-[#dfe8fb]" />
 
                 <div className="absolute right-[10%] top-[12%] w-[56%] h-[64%] overflow-hidden rounded-[40px] rotate-[-10deg] shadow-xl bg-white">
                   <img src={appPhonesImg} alt="App screenshots" className="w-full h-full object-cover" />
@@ -325,7 +325,7 @@ const WorkPage = () => {
       </section>
 
       {/* FOOD */}
-      <section className="bg-[#f5f5f3] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
@@ -366,7 +366,7 @@ const WorkPage = () => {
                 </div>
 
                 <div className="absolute left-[34%] top-[0] text-pink-300 text-7xl -rotate-12">〰</div>
-                <div className="absolute right-[4%] bottom-[6%] text-cyan-400 text-7xl rotate-12">〰</div>
+                <div className="absolute right-[4%] bottom-[6%] text-[#1368de] text-7xl rotate-12">〰</div>
               </div>
             </motion.div>
           </div>
@@ -375,7 +375,7 @@ const WorkPage = () => {
 
      {/* GET STARTED / PRICING */}
 {/* GET STARTED / PRICING */}
-<section className="bg-[#f5f5f3] pt-10 pb-20 lg:pt-16 lg:pb-28 px-4">
+<section className="bg-white pt-10 pb-20 lg:pt-16 lg:pb-28 px-4">
   <div className="text-center mb-16">
     <h2 className="heading-hero text-4xl sm:text-5xl lg:text-[5rem] text-[#1557d6] mb-4">
       Get started

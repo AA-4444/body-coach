@@ -43,15 +43,15 @@ const SupportPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f5f5f3]">
+    <div className="min-h-screen overflow-x-hidden bg-white">
       <Header />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#dff2b2]">
+      <section className="relative overflow-hidden bg-[#ffd6e7]">
         <div className="absolute left-[-120px] top-[40px] w-[320px] h-[320px] rounded-full bg-white/25" />
         <div className="absolute right-[-80px] bottom-[-80px] w-[280px] h-[280px] rounded-full bg-pink-200/40" />
 
-        <div className="absolute left-[12%] top-[28%] text-cyan-400 text-6xl rotate-12 opacity-80">
+        <div className="absolute left-[12%] top-[28%] text-[#1368de] text-6xl rotate-12 opacity-80">
           〰
         </div>
         <div className="absolute right-[10%] top-[18%] text-pink-300 text-6xl -rotate-12 opacity-80">
@@ -188,7 +188,7 @@ const SupportPage = () => {
                 href="https://t.me/your_support_username"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-full bg-brand-lime text-brand-blue-dark px-8 py-4 font-heading font-bold uppercase tracking-[0.14em] text-sm lg:text-base hover:scale-105 transition-transform"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#1368de] text-white px-8 py-4 font-heading font-bold uppercase tracking-[0.14em] text-sm lg:text-base hover:scale-105 hover:bg-[#0d57c6] transition-transform"
               >
                 <Send className="w-5 h-5" />
                 Открыть Telegram

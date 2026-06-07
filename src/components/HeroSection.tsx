@@ -32,7 +32,7 @@ const HeroSection = () => {
         >
           <path
             d="M120 720 Q220 520 340 620 Q450 720 560 560"
-            stroke="hsl(72 100% 50%)"
+            stroke="hsl(322 100% 70%)"
             strokeWidth="10"
             fill="none"
             strokeLinecap="round"
@@ -78,7 +78,7 @@ const HeroSection = () => {
           >
             <a
               href="#pricing"
-              className="btn-lime-large inline-flex h-[56px] w-full items-center justify-center px-6 text-center"
+              className="inline-flex h-[56px] w-full items-center justify-center rounded-full bg-[#ffd6e7] px-6 text-center font-heading text-base font-bold uppercase tracking-wider text-[#1368de] transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Выбрать формат
             </a>
@@ -94,7 +94,7 @@ const HeroSection = () => {
           >
             <path
               d="M0,120 L0,85 C180,70 320,55 480,58 C700,62 860,92 1040,88 C1180,85 1300,68 1440,78 L1440,120 Z"
-              fill="#1368de"
+              fill="#ffd6e7"
             />
           </svg>
         </div>

@@ -38,11 +38,11 @@ const MissionPage = () => {
   });
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f5f5f3]">
+    <div className="min-h-screen overflow-x-hidden bg-white">
       <Header />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#c9eb7c]">
+      <section className="relative overflow-hidden bg-[#ffd6e7]">
         <div className="absolute left-[-180px] bottom-[-120px] w-[620px] h-[620px] rounded-full bg-white/22" />
 
         <div className="absolute right-[-100px] top-0 w-[320px] h-[920px] opacity-60 pointer-events-none">
@@ -71,7 +71,7 @@ const MissionPage = () => {
                 <div className="absolute right-[12%] top-[20%] text-pink-300 text-6xl -rotate-12 opacity-90 z-20">
                   〰
                 </div>
-                <div className="absolute right-[0%] bottom-[28%] text-cyan-400 text-7xl rotate-12 opacity-90 z-20">
+                <div className="absolute right-[0%] bottom-[28%] text-[#1368de] text-7xl rotate-12 opacity-90 z-20">
                   〰
                 </div>
 
@@ -185,7 +185,7 @@ const MissionPage = () => {
 
       {/* JOURNEY BANNER */}
       <section className="relative overflow-hidden bg-[#1557d6] py-20 lg:py-28">
-        <div className="absolute left-[14%] top-[26%] text-cyan-400 text-7xl rotate-12 opacity-90">
+        <div className="absolute left-[14%] top-[26%] text-[#1368de] text-7xl rotate-12 opacity-90">
           〰
         </div>
         <div className="absolute right-[14%] top-[22%] text-pink-300 text-6xl -rotate-12 opacity-90">
@@ -194,7 +194,7 @@ const MissionPage = () => {
         <div className="absolute left-[20%] bottom-[22%] text-blue-300 text-7xl opacity-70">
           〰
         </div>
-        <div className="absolute right-[28%] bottom-[18%] text-lime-300 text-7xl rotate-12 opacity-90">
+        <div className="absolute right-[28%] bottom-[18%] text-[#ff66c4] text-7xl rotate-12 opacity-90">
           〰
         </div>
 
@@ -218,18 +218,18 @@ const MissionPage = () => {
           </motion.div>
         </div>
 
-        <div className="absolute -bottom-px left-0 right-0 bg-[#f5f5f3] pointer-events-none">
+        <div className="absolute -bottom-px left-0 right-0 bg-white pointer-events-none">
           <svg viewBox="0 0 1440 120" className="block h-[92px] w-full translate-y-px lg:h-[122px]" preserveAspectRatio="none">
             <path
               d="M0,85 C80,20 150,20 230,85 C310,20 380,20 460,85 C540,20 610,20 690,85 C770,20 840,20 920,85 C1000,20 1070,20 1150,85 C1230,20 1310,20 1440,85 L1440,120 L0,120 Z"
-              fill="#f5f5f3"
+              fill="#ffffff"
             />
           </svg>
         </div>
       </section>
 
       {/* A MAN ON A MISSION */}
-      <section className="bg-[#f5f5f3] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
@@ -286,7 +286,7 @@ const MissionPage = () => {
                 </div>
 
                 <div className="absolute left-[40%] top-[2%] text-pink-300 text-7xl -rotate-12">〰</div>
-                <div className="absolute left-[26%] bottom-[30%] text-lime-300 text-7xl rotate-12">〰</div>
+                <div className="absolute left-[26%] bottom-[30%] text-[#ff66c4] text-7xl rotate-12">〰</div>
               </div>
             </motion.div>
           </div>
@@ -294,7 +294,7 @@ const MissionPage = () => {
       </section>
 
       {/* CHANGING LIVES */}
-      <section className="bg-[#f5f5f3] py-20 lg:py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 items-center gap-14 lg:gap-20">
             <motion.div
@@ -316,7 +316,7 @@ const MissionPage = () => {
                   />
                 </div>
 
-                <div className="absolute left-[44%] top-[-4%] text-cyan-400 text-7xl -rotate-12">〰</div>
+                <div className="absolute left-[44%] top-[-4%] text-[#1368de] text-7xl -rotate-12">〰</div>
                 <div className="absolute right-[16%] top-[34%] text-pink-300 text-6xl rotate-12">〰</div>
               </div>
             </motion.div>

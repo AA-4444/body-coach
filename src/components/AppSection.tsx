@@ -33,8 +33,8 @@ const resultItems = [
 const plans = [
   {
     label: "🔥 Начни здесь · самый доступный вход",
-    name: "Моё тело. Мои правила",
-    format: "@victoria_bodycoach — закрытый канал",
+    badge: "Получить три дня бесплатно",
+    name: "FemmeIQ",
     price: "€29",
     period: "/ месяц · отмена в любое время",
     topBar: "bg-white/20",
@@ -47,20 +47,19 @@ const plans = [
       "Видеоуроки по женскому телу — питание, гормоны, цикл",
       "Научный подход без мифов и «универсальных диет»",
       "Реальные трансформации подписчиц каждую неделю",
-      "Прямой доступ к знаниям Виктории — из Милана, каждый день",
+      "Живое общение",
     ],
     guarantee: "342 подписчицы уже внутри · новые материалы каждую неделю",
     popular: false,
   },
   {
     label: "Популярный",
-    name: "Стройность за 30 дней",
-    format: "Программа через Telegram-бот",
+    name: "FemmeIQ PRO",
     price: "€99",
     period: "/ 4 недели",
-    topBar: "bg-brand-lime",
-    card: "bg-[#ffd6e7] text-primary border-brand-lime",
-    button: "bg-brand-lime text-brand-blue-dark",
+    topBar: "bg-[#e84693]",
+    card: "bg-[#ffd6e7] text-primary border-[#e84693]",
+    button: "bg-[#e84693] text-white",
     href: formLink,
     cta: "Хочу мою программу",
     isTelegram: false,
@@ -76,16 +75,17 @@ const plans = [
     popular: true,
   },
   {
-    label: "Премиум",
-    name: "Идеальная женщина",
+    label: "Премиум пакет",
+    badge: "Премиум пакет",
+    name: "FemmeIQ PRO Fitnes",
     format: "Личный коучинг с Викторией",
     price: "€499",
     period: "/ месяц",
-    topBar: "bg-[#ffd6e7]",
-    card: "bg-primary-foreground text-primary border-primary/10",
+    topBar: "bg-[#ff7ab6]",
+    card: "bg-primary-foreground text-primary border-[#ff7ab6]/70",
     button: "bg-primary text-primary-foreground",
     href: formLink,
-    cta: "Записаться к Виктории",
+    cta: "Подать заявку",
     isTelegram: false,
     features: [
       "Персональные видеоуроки от Виктории",
@@ -94,19 +94,21 @@ const plans = [
       "Еженедельная корректировка",
       "Разбор видео техники",
       "Личный чат с Викторией",
+      "2 офлайн тренировки",
     ],
     guarantee: "Гарантия видимого результата за 30 дней",
     popular: false,
+    highlightLastFeature: true,
   },
 ];
 
 const AppSection = () => {
   return (
     <section>
-      {/* BLUE BIO SECTION */}
+      {/* BIO SECTION */}
       <div
         id="about"
-        className="relative bg-gradient-to-b from-[#1368de] to-[#1368de] text-white overflow-hidden"
+        className="relative bg-[#ffd6e7] text-[#1368de] overflow-hidden"
       >
         <svg
           className="absolute right-0 bottom-0 w-[640px] h-[420px] z-0 pointer-events-none"
@@ -122,7 +124,7 @@ const AppSection = () => {
               L640 420
               Z
             "
-            fill="#0d57c6"
+            fill="#ffb7d8"
           />
         </svg>
 
@@ -154,7 +156,7 @@ const AppSection = () => {
             className="absolute right-[4%] top-[520px] w-[76px] opacity-30 pointer-events-none sm:w-[90px] md:right-[18%] md:top-[150px] md:w-[100px] md:opacity-100"
             viewBox="0 0 200 140"
             fill="none"
-            stroke="#d4ff6a"
+            stroke="#ff66c4"
             strokeWidth="10"
             strokeLinecap="round"
           >
@@ -194,15 +196,15 @@ const AppSection = () => {
                 delay={80}
                 className="flex justify-center lg:justify-start mb-6"
               >
-                <div className="w-16 h-16 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-brand-lime" />
+                <div className="w-16 h-16 rounded-full bg-white/55 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-[#1368de]" />
                 </div>
               </Reveal>
 
               <Reveal
                 as="h2"
                 delay={140}
-                className="heading-hero text-4xl sm:text-5xl lg:text-7xl text-primary-foreground mb-6"
+                className="heading-hero text-4xl sm:text-5xl lg:text-7xl text-[#1368de] mb-6"
               >
                 О body coach
               </Reveal>
@@ -210,7 +212,7 @@ const AppSection = () => {
               <Reveal
                 as="h3"
                 delay={220}
-                className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-primary-foreground mb-6 leading-tight"
+                className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[#1368de] mb-6 leading-tight"
               >
                 Я — Виктория Примасюк, эксперт в области трансформации тела,
                 преподаватель и специалист по функциональному движению с более
@@ -219,7 +221,7 @@ const AppSection = () => {
 
               <Reveal
                 delay={300}
-                className="space-y-5 text-primary-foreground/85 text-base leading-[1.7] max-w-2xl mx-auto lg:mx-0"
+                className="space-y-5 text-[#314f85] text-base leading-[1.7] max-w-2xl mx-auto lg:mx-0"
               >
                 <p>
                   Я выпускница и преподаватель Национального университета
@@ -239,33 +241,33 @@ const AppSection = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10 max-w-2xl mx-auto lg:mx-0">
                 <Reveal delay={380}>
-                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                  <div className="rounded-2xl bg-white/55 border border-white/60 px-5 py-5 text-center backdrop-blur-sm">
                     <div className="text-3xl font-heading font-black text-brand-lime">
                       15+
                     </div>
-                    <div className="text-sm text-primary-foreground/75 mt-1">
+                    <div className="text-sm text-[#314f85]/75 mt-1">
                       лет опыта
                     </div>
                   </div>
                 </Reveal>
 
                 <Reveal delay={480}>
-                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                  <div className="rounded-2xl bg-white/55 border border-white/60 px-5 py-5 text-center backdrop-blur-sm">
                     <div className="text-3xl font-heading font-black text-brand-lime">
                       50+
                     </div>
-                    <div className="text-sm text-primary-foreground/75 mt-1">
+                    <div className="text-sm text-[#314f85]/75 mt-1">
                       сертификаций
                     </div>
                   </div>
                 </Reveal>
 
                 <Reveal delay={580}>
-                  <div className="rounded-2xl bg-white/10 border border-white/15 px-5 py-5 text-center backdrop-blur-sm">
+                  <div className="rounded-2xl bg-white/55 border border-white/60 px-5 py-5 text-center backdrop-blur-sm">
                     <div className="text-3xl font-heading font-black text-brand-lime">
                       MI
                     </div>
-                    <div className="text-sm text-primary-foreground/75 mt-1">
+                    <div className="text-sm text-[#314f85]/75 mt-1">
                       Милан
                     </div>
                   </div>
@@ -273,14 +275,14 @@ const AppSection = () => {
               </div>
 
               <Reveal delay={660} className="mt-10 max-w-2xl mx-auto lg:mx-0">
-                <blockquote className="border-l-4 border-brand-lime pl-5 text-xl sm:text-2xl font-heading font-bold italic leading-snug text-primary-foreground">
+                <blockquote className="border-l-4 border-brand-lime pl-5 text-xl sm:text-2xl font-heading font-bold italic leading-snug text-[#1368de]">
                   «Каждая программа — это разговор с твоим телом, а не команда
                   ему.»
                 </blockquote>
 
                 <a
                   href="#results"
-                  className="btn-lime mt-6 inline-flex min-h-[48px] items-center justify-center"
+                  className="mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-white px-8 py-3 font-heading text-sm font-bold uppercase tracking-wider text-[#1368de] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   Как мы работаем
                 </a>
@@ -293,7 +295,7 @@ const AppSection = () => {
       {/* RESULTS SECTION */}
       <section
         id="results"
-        className="relative bg-[#ffd6e7] py-12 sm:py-16 lg:py-24 overflow-hidden"
+        className="relative bg-[#1368de] py-12 sm:py-16 lg:py-24 overflow-hidden"
       >
         <div className="absolute left-[6%] top-[36px] hidden text-brand-lime opacity-35 rotate-12 text-4xl pointer-events-none sm:block sm:text-5xl md:left-[8%] md:top-[70px] md:opacity-70">
           〰
@@ -322,7 +324,7 @@ const AppSection = () => {
           className="absolute right-[4%] bottom-[48px] w-[88px] opacity-25 pointer-events-none sm:w-[110px] md:right-[16%] md:bottom-[90px] md:w-[120px] md:opacity-70"
           viewBox="0 0 200 160"
           fill="none"
-          stroke="#d4ff6a"
+          stroke="#ff66c4"
           strokeWidth="10"
           strokeLinecap="round"
         >
@@ -333,7 +335,7 @@ const AppSection = () => {
           <div className="px-4 sm:px-8 lg:px-12 mb-10 lg:mb-16">
             <Reveal
               as="h2"
-              className="font-display text-primary text-2xl sm:text-5xl lg:text-6xl max-w-4xl uppercase leading-[1.05]"
+              className="font-display text-white text-2xl sm:text-5xl lg:text-6xl max-w-4xl uppercase leading-[1.05]"
             >
               Ты уже была такой. Мы просто возвращаем это тело тебе.
             </Reveal>
@@ -341,7 +343,7 @@ const AppSection = () => {
             <Reveal delay={120}>
               <a
                 href="#pricing"
-                className="btn-lime mt-6 inline-flex min-h-[48px] items-center justify-center"
+                className="mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#ffd6e7] px-8 py-3 font-heading text-sm font-bold uppercase tracking-wider text-[#1368de] transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 Хочу так же
               </a>
@@ -398,17 +400,17 @@ const PricingSection = () => {
               L0,120
               Z
             "
-            fill="hsl(220 100% 40%)"
+            fill="#ffd6e7"
           />
         </svg>
       </div>
 
-      <section className="section-blue pt-16 pb-24 px-4 relative z-20 overflow-hidden sm:pt-24 lg:pt-32">
+      <section className="bg-[#ffd6e7] pt-16 pb-24 px-4 relative z-20 overflow-hidden sm:pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-14 lg:mb-16">
             <Reveal
               as="h2"
-              className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-primary-foreground"
+              className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-[#1368de]"
             >
               Форматы подписки
             </Reveal>
@@ -416,9 +418,9 @@ const PricingSection = () => {
             <Reveal
               as="p"
               delay={120}
-              className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
+              className="text-[#314f85]/75 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
             >
-              Начни откуда удобно. Каждый путь ведёт к одному результату.
+              Каждый путь ведёт к одному результату.
             </Reveal>
           </div>
 
@@ -426,9 +428,17 @@ const PricingSection = () => {
             {plans.map((plan, index) => (
               <Reveal key={plan.name} delay={index * 100} className="h-full">
                 <div className="relative h-full pt-5">
-                  {plan.popular && (
-                    <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-full bg-brand-lime px-6 py-2.5 font-heading font-bold uppercase tracking-[0.14em] text-[11px] text-brand-blue-dark shadow-lg whitespace-nowrap">
-                      Популярный
+                  {(plan.popular || plan.badge) && (
+                    <div
+                      className={`absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-full px-6 py-2.5 font-heading font-bold uppercase tracking-[0.14em] text-[11px] shadow-lg whitespace-nowrap ${
+                        plan.popular
+                          ? "bg-[#e84693] text-white"
+                          : plan.isTelegram
+                          ? "bg-white text-[#1788bd]"
+                          : "bg-[#ff7ab6] text-white"
+                      }`}
+                    >
+                      {plan.badge ?? "Популярный"}
                     </div>
                   )}
 
@@ -437,7 +447,9 @@ const PricingSection = () => {
                       plan.card
                     } ${
                       plan.popular
-                        ? "border-[2px] border-brand-lime"
+                        ? "border-[2px] border-[#e84693]"
+                        : plan.badge && !plan.isTelegram
+                        ? "border-[2px] border-[#ff7ab6]/70"
                         : "border-primary/10"
                     }`}
                   >
@@ -471,23 +483,27 @@ const PricingSection = () => {
                           {plan.name}
                         </h3>
 
-                        <div
-                          className={`flex items-center gap-2 ${
-                            plan.isTelegram ? "text-white/70" : "text-primary/60"
-                          }`}
-                        >
-                          {plan.isTelegram && (
-                            <img
-                              src={telegramLogo}
-                              alt=""
-                              className="h-5 w-5 rounded-full"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          )}
+                        {plan.format && (
+                          <div
+                            className={`flex items-center gap-2 ${
+                              plan.isTelegram
+                                ? "text-white/70"
+                                : "text-primary/60"
+                            }`}
+                          >
+                            {plan.isTelegram && (
+                              <img
+                                src={telegramLogo}
+                                alt=""
+                                className="h-5 w-5 rounded-full"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            )}
 
-                          <p className="text-sm italic">{plan.format}</p>
-                        </div>
+                            <p className="text-sm italic">{plan.format}</p>
+                          </div>
+                        )}
                       </div>
 
                       <div className={plan.isTelegram ? "mb-5 lg:mb-6" : "mb-6"}>
@@ -521,6 +537,9 @@ const PricingSection = () => {
                       >
                         {plan.features.map((feature, featureIndex) => {
                           const isFeatured = plan.popular && featureIndex < 2;
+                          const isPinkFeature =
+                            plan.highlightLastFeature &&
+                            featureIndex === plan.features.length - 1;
 
                           return (
                             <li
@@ -531,9 +550,11 @@ const PricingSection = () => {
                                 className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
                                   isFeatured
                                     ? "bg-primary text-primary-foreground"
+                                    : isPinkFeature
+                                    ? "bg-[#ff7ab6] text-white"
                                     : plan.isTelegram
                                     ? "bg-white text-[#2AABEE]"
-                                    : "bg-brand-lime text-brand-blue-dark"
+                                    : "bg-[#e84693] text-white"
                                 }`}
                               >
                                 {isFeatured ? (
@@ -547,6 +568,8 @@ const PricingSection = () => {
                                 className={`leading-snug ${
                                   plan.isTelegram
                                     ? "text-[15px] text-white/90 lg:text-base"
+                                    : isPinkFeature
+                                    ? "font-heading font-bold text-[#e84693]"
                                     : "text-primary/80"
                                 }`}
                               >
@@ -568,7 +591,11 @@ const PricingSection = () => {
                       >
                         <p
                           className={`text-xs sm:text-sm leading-snug ${
-                            plan.isTelegram ? "text-white/75" : "text-primary/65"
+                            plan.isTelegram
+                              ? "text-white/75"
+                              : plan.popular
+                              ? "text-[11px] font-heading font-bold uppercase tracking-[0.12em] text-[#e84693] sm:text-xs"
+                              : "text-primary/65"
                           }`}
                         >
                           {plan.guarantee}

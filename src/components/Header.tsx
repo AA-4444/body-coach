@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Instagram, Mail, MessageCircle, Send } from "lucide-react";
+import { Instagram, Send } from "lucide-react";
 import { getLenis } from "@/lib/lenis";
 import BrandLogo from "@/components/BrandLogo";
 
@@ -48,14 +48,14 @@ const Header = () => {
   };
 
   const desktopLinkClass =
-    "font-heading font-bold text-primary-foreground text-[1.05rem] xl:text-[1.12rem] tracking-[0.14em] whitespace-nowrap transition-colors border-b-[3px] pb-1 border-transparent hover:text-brand-lime hover:border-brand-lime";
+    "font-heading font-bold text-[#1368de] text-[1.05rem] xl:text-[1.12rem] tracking-[0.14em] whitespace-nowrap transition-colors border-b-[3px] pb-1 border-transparent hover:text-[#0d57c6] hover:border-brand-lime";
 
   const mobileLinkClass =
     "font-heading font-bold text-[1.05rem] tracking-[0.14em] transition text-[#1368de] hover:text-brand-lime";
 
   return (
     <>
-      <header className="sticky lg:fixed top-0 left-0 w-full z-50 section-blue">
+      <header className="sticky lg:fixed top-0 left-0 w-full z-50 bg-[#ffd6e7] text-[#1368de] shadow-[0_1px_0_rgba(19,104,222,0.08)]">
         <div className="mx-auto w-full max-w-[1440px] px-5 lg:px-10 xl:px-14">
           <div className="flex items-center justify-between py-3 lg:h-[92px]">
             <Link to="/" className="relative z-[80] flex items-center shrink-0">
@@ -78,7 +78,7 @@ const Header = () => {
 
               <Link
                 to="/support"
-                className="btn-lime text-[0.98rem] xl:text-[1.02rem] px-8 py-4 whitespace-nowrap inline-flex items-center justify-center"
+                className="inline-flex items-center justify-center rounded-full bg-[#1368de] px-8 py-4 font-heading text-[0.98rem] font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-[#0d57c6] hover:shadow-lg xl:text-[1.02rem] whitespace-nowrap"
               >
                 ЗАПИСАТЬСЯ
               </Link>
@@ -96,7 +96,7 @@ const Header = () => {
                   animate={
                     mobileOpen
                       ? { rotate: 45, y: 0, backgroundColor: "#1368de" }
-                      : { rotate: 0, y: -7, backgroundColor: "#ffffff" }
+                      : { rotate: 0, y: -7, backgroundColor: "#1368de" }
                   }
                   transition={{ duration: 0.22, ease: "easeInOut" }}
                   className="absolute left-0 top-1/2 block h-[2.5px] w-6 rounded-full origin-center"
@@ -105,7 +105,7 @@ const Header = () => {
                   animate={
                     mobileOpen
                       ? { opacity: 0, scaleX: 0, backgroundColor: "#1368de" }
-                      : { opacity: 1, scaleX: 1, backgroundColor: "#ffffff" }
+                      : { opacity: 1, scaleX: 1, backgroundColor: "#1368de" }
                   }
                   transition={{ duration: 0.18, ease: "easeInOut" }}
                   className="absolute left-0 top-1/2 -translate-y-1/2 block h-[2.5px] w-6 rounded-full origin-center"
@@ -114,7 +114,7 @@ const Header = () => {
                   animate={
                     mobileOpen
                       ? { rotate: -45, y: 0, backgroundColor: "#1368de" }
-                      : { rotate: 0, y: 7, backgroundColor: "#ffffff" }
+                      : { rotate: 0, y: 7, backgroundColor: "#1368de" }
                   }
                   transition={{ duration: 0.22, ease: "easeInOut" }}
                   className="absolute left-0 top-1/2 block h-[2.5px] w-6 rounded-full origin-center"
@@ -213,7 +213,7 @@ const Header = () => {
                   <div className="mt-8 border-t border-slate-200 pt-6">
                     <div className="flex items-center gap-5">
                       <a
-                        href="https://instagram.com/"
+                        href="https://www.instagram.com/viko_vika_fit?igsh=MTF0bmtuanV2bzJmNA=="
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Instagram"
@@ -223,17 +223,7 @@ const Header = () => {
                       </a>
 
                       <a
-                        href="https://wa.me/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="WhatsApp"
-                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
-                      >
-                        <MessageCircle className="w-6 h-6" />
-                      </a>
-
-                      <a
-                        href="https://t.me/your_support_username"
+                        href="@viko_vika_fit"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Telegram"
@@ -242,19 +232,11 @@ const Header = () => {
                         <Send className="w-6 h-6" />
                       </a>
 
-                      <a
-                        href="mailto:hello@example.com"
-                        aria-label="Email"
-                        className="min-w-11 min-h-11 flex items-center justify-center text-[#1368de] hover:text-brand-lime transition-colors"
-                      >
-                        <Mail className="w-6 h-6" />
-                      </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="relative mt-8 h-[170px] overflow-hidden bg-[#1c5ed8]">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c5ed8] via-[#1c5ed8]/85 to-[#1c5ed8]/55" />
+                <div className="relative mt-8 h-[170px] overflow-hidden bg-white">
 
                   <svg
                     viewBox="0 0 1440 140"
@@ -263,13 +245,18 @@ const Header = () => {
                   >
                     <path
                       d="M0,110 C260,20 520,10 720,60 C920,110 1160,100 1440,40 L1440,140 L0,140 Z"
-                      fill="#ffffff"
-                      opacity="0.18"
+                      fill="#ff66c4"
+                      opacity="0.45"
+                    />
+                    <path
+                      d="M0,122 C280,50 560,34 760,76 C960,118 1180,106 1440,62 L1440,140 L0,140 Z"
+                      fill="#ffd6e7"
+                      opacity="1"
                     />
                   </svg>
 
                   <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-                    <p className="max-w-[280px] text-white/75 text-[15px] leading-snug mb-5">
+                    <p className="max-w-[280px] text-[#1368de]/80 text-[15px] leading-snug mb-5">
                       Начните путь к сильному,
                       <br />
                       здоровому и красивому телу

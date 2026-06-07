@@ -11,8 +11,8 @@ const BrandLogo = ({ className, dark = false }: BrandLogoProps) => {
       className={cn(
         "relative flex shrink-0 items-center justify-center rounded-full border-2 shadow-[0_0_0_1px_rgba(255,255,255,0.18)_inset]",
         dark
-          ? "border-primary bg-primary text-brand-lime"
-          : "border-brand-cyan bg-primary text-brand-lime",
+          ? "border-primary bg-primary text-white"
+          : "border-brand-cyan bg-primary text-white",
         className
       )}
     >

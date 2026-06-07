@@ -67,7 +67,7 @@ const Footer = () => {
 
             <div className="flex gap-4 mb-8">
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/viko_vika_fit?igsh=MTF0bmtuanV2bzJmNA=="
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"

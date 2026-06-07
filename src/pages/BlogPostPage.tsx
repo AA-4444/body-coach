@@ -10,7 +10,7 @@ const BlogPostPage = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-[#f3f4f7]">
+      <div className="min-h-screen bg-[#fff7fb]">
         <Header />
         <main className="px-5 py-20 max-w-4xl mx-auto">
           <h1 className="heading-hero text-[#314f85] text-4xl mb-4">Article not found</h1>
@@ -28,7 +28,7 @@ const BlogPostPage = () => {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f3f4f7]">
+    <div className="min-h-screen overflow-x-hidden bg-[#fff7fb]">
       <Header />
 
       <main>

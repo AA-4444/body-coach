@@ -72,11 +72,11 @@ const BlogPage = () => {
   const gridPosts = filteredPosts.filter((post) => post.id !== featuredPost?.id);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f3f4f7]">
+    <div className="min-h-screen overflow-x-hidden bg-[#fff7fb]">
       <Header />
 
       {/* Blog hero */}
-      <section className="relative overflow-hidden bg-[#83dce4]">
+      <section className="relative overflow-hidden bg-[#ffd6e7]">
         <div className="absolute left-[-80px] top-0 w-[240px] h-[240px] rounded-full bg-white/18" />
         <div className="absolute left-[120px] top-[70px] w-[180px] h-[180px] rounded-full bg-white/14" />
         <div className="absolute left-[220px] bottom-[-50px] w-[140px] h-[140px] rounded-full bg-white/14" />
@@ -100,7 +100,7 @@ const BlogPage = () => {
             className="absolute left-[43%] top-[28px] w-[42px] lg:w-[50px]"
             viewBox="0 0 100 100"
             fill="none"
-            stroke="#14c8d8"
+            stroke="#1368de"
             strokeWidth="8"
             strokeLinecap="round"
           >
@@ -137,7 +137,7 @@ const BlogPage = () => {
             className="absolute left-[27%] bottom-[46px] w-[58px] lg:w-[70px]"
             viewBox="0 0 100 70"
             fill="none"
-            stroke="#e9ef68"
+            stroke="#ff66c4"
             strokeWidth="7"
             strokeLinecap="round"
           >
@@ -148,7 +148,7 @@ const BlogPage = () => {
             className="absolute left-[47%] bottom-[30px] w-[78px] lg:w-[92px]"
             viewBox="0 0 120 90"
             fill="none"
-            stroke="#13c7d8"
+            stroke="#1368de"
             strokeWidth="7"
             strokeLinecap="round"
           >
@@ -160,7 +160,7 @@ const BlogPage = () => {
             className="absolute right-[31%] bottom-[44px] w-[72px] lg:w-[84px]"
             viewBox="0 0 120 80"
             fill="none"
-            stroke="#eef06f"
+            stroke="#ff66c4"
             strokeWidth="7"
             strokeLinecap="round"
           >
@@ -181,7 +181,7 @@ const BlogPage = () => {
         </div>
       </section>
 
-      <section className="bg-[#f7f8fb] border-b border-slate-200">
+      <section className="bg-white border-b border-slate-200">
         <div className="mx-auto w-full max-w-[1200px] px-5 lg:px-8">
           <div className="overflow-x-auto">
             <div className="min-w-max flex items-center justify-center gap-6 lg:gap-9 py-6">
@@ -194,8 +194,8 @@ const BlogPage = () => {
                     onClick={() => setActiveCategory(category)}
                     className={`font-heading font-bold tracking-[0.12em] uppercase pb-2 border-b-[3px] whitespace-nowrap transition text-sm lg:text-base ${
                       isActive
-                        ? "text-[#314f85] border-[#30c8d8]"
-                        : "text-[#314f85] border-transparent hover:border-[#30c8d8]"
+                        ? "text-[#314f85] border-[#1368de]"
+                        : "text-[#314f85] border-transparent hover:border-[#1368de]"
                     }`}
                   >
                     {category}
