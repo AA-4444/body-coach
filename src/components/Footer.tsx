@@ -76,26 +76,12 @@ const Footer = () => {
                 <Instagram className="w-6 h-6" />
               </a>
 
-              <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp"
-                className="min-w-11 min-h-11 flex items-center justify-center text-primary-foreground/70 hover:text-brand-lime transition-colors"
-              >
-                <MessageCircle className="w-6 h-6" />
-              </a>
+            
+
+             
 
               <a
-                href="mailto:hello@example.com"
-                aria-label="Email"
-                className="min-w-11 min-h-11 flex items-center justify-center text-primary-foreground/70 hover:text-brand-lime transition-colors"
-              >
-                <Mail className="w-6 h-6" />
-              </a>
-
-              <a
-                href="https://t.me/your_support_username"
+                href="@viko_vika_fit"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Telegram"
