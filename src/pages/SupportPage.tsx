@@ -2,9 +2,10 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, MessageCircleQuestion, Send } from "lucide-react";
 import Header from "@/components/Header";
-import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+
+const telegramUrl = "https://t.me/viko_vika_fit";
 
 const faqItems = [
   {
@@ -89,7 +90,7 @@ const SupportPage = () => {
 
             <Reveal delay={300}>
               <a
-                href="https://t.me/your_support_username"
+                href={telegramUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-10 inline-flex items-center justify-center gap-3 rounded-full bg-[#1557d6] text-white px-8 py-4 font-heading font-bold uppercase tracking-[0.14em] text-sm lg:text-base hover:scale-105 transition-transform"
@@ -185,7 +186,7 @@ const SupportPage = () => {
               </p>
 
               <a
-                href="https://t.me/your_support_username"
+                href={telegramUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-[#1368de] text-white px-8 py-4 font-heading font-bold uppercase tracking-[0.14em] text-sm lg:text-base hover:scale-105 hover:bg-[#0d57c6] transition-transform"
@@ -198,7 +199,28 @@ const SupportPage = () => {
         </div>
       </section>
 
-      <NewsletterSection />
+      <div className="-mb-px bg-white">
+        <svg
+          viewBox="0 0 1440 120"
+          className="block h-[82px] w-full translate-y-px lg:h-[112px]"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="
+              M0,0
+              C180,40 320,95 520,95
+              C720,95 860,25 1040,25
+              C1220,25 1320,70 1440,110
+              L1440,120
+              L0,120
+              Z
+            "
+            fill="hsl(220 80% 12%)"
+          />
+        </svg>
+      </div>
+
       <Footer />
     </div>
   );

@@ -1,14 +1,13 @@
-import { Instagram, Mail, MessageCircle, Send } from "lucide-react";
+import { Instagram, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import BrandLogo from "@/components/BrandLogo";
 
 const navLinks = [
-  { label: "О body coach", to: "/mission" },
-  { label: "Экспертиза", to: "/work" },
-  { label: "Метод", to: "/work#method" },
-  { label: "Результаты", to: "/work#results" },
-  { label: "Контакт", to: "/support" },
+  { label: "Обо мне", to: "/#about" },
+  { label: "Программы", to: "/#pricing" },
+  { label: "Блог", to: "/blog" },
+  { label: "Контакты", to: "/support" },
 ];
 
 const legalLinks = [
@@ -31,7 +30,7 @@ const Footer = () => {
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
               Виктория Примасюк — эксперт по трансформации тела,
               функциональному движению и системной работе с телом. Частная
-              практика в Милане, онлайн и офлайн.
+              практика в Милане, онлайн.
             </p>
           </div>
         </Reveal>
@@ -76,10 +75,6 @@ const Footer = () => {
                 <Instagram className="w-6 h-6" />
               </a>
 
-            
-
-             
-
               <a
                 href="https://t.me/viko_vika_fit"
                 target="_blank"
@@ -98,7 +93,7 @@ const Footer = () => {
               </p>
               <p>
                 <span className="text-primary-foreground/80">Формат:</span>{" "}
-                Онлайн / Офлайн
+                Онлайн
               </p>
             </div>
 
