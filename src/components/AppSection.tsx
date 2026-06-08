@@ -34,7 +34,7 @@ const plans = [
   {
     label: "🔥 Начни здесь · самый доступный вход",
     badge: "Получить три дня бесплатно",
-    name: "FemmeIQ",
+    name: "Femme.IQ",
     price: "€29",
     period: "/ месяц · отмена в любое время",
     topBar: "bg-white/20",
@@ -54,7 +54,7 @@ const plans = [
   },
   {
     label: "Популярный",
-    name: "FemmeIQ PRO",
+    name: "Femme.IQ PRO",
     price: "€99",
     period: "/ 4 недели",
     topBar: "bg-[#e84693]",
@@ -77,7 +77,7 @@ const plans = [
   {
     label: "Премиум пакет",
     badge: "Премиум пакет",
-    name: "FemmeIQ PRO Fitnes",
+    name: "Femme.IQ PRO Fitnes",
     format: "Личный коучинг с Викторией",
     price: "€499",
     period: "/ месяц",
