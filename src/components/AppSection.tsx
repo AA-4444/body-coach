@@ -405,12 +405,12 @@ const PricingSection = () => {
         </svg>
       </div>
 
-      <section className="bg-[#ffd6e7] pt-16 pb-24 px-4 relative z-20 overflow-hidden sm:pt-24 lg:pt-32">
+      <section className="bg-[#ffd6e7] pt-8 pb-14 px-4 relative z-20 overflow-hidden sm:pt-24 sm:pb-24 lg:pt-32">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-14 lg:mb-16">
+          <div className="text-center mb-7 sm:mb-14 lg:mb-16">
             <Reveal
               as="h2"
-              className="heading-hero text-4xl sm:text-5xl lg:text-6xl text-[#1368de]"
+              className="heading-hero text-[2.5rem] sm:text-5xl lg:text-6xl text-[#1368de]"
             >
               Форматы подписки
             </Reveal>
@@ -418,19 +418,19 @@ const PricingSection = () => {
             <Reveal
               as="p"
               delay={120}
-              className="text-[#314f85]/75 mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
+              className="text-[#314f85]/75 mt-2 max-w-2xl mx-auto text-sm leading-snug sm:mt-4 sm:text-lg sm:leading-relaxed"
             >
               Каждый путь ведёт к одному результату.
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-8 items-stretch">
             {plans.map((plan, index) => (
               <Reveal key={plan.name} delay={index * 100} className="h-full">
-                <div className="relative h-full pt-5">
+                <div className="relative h-full pt-4 sm:pt-5">
                   {(plan.popular || plan.badge) && (
                     <div
-                      className={`absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-full px-6 py-2.5 font-heading font-bold uppercase tracking-[0.14em] text-[11px] shadow-lg whitespace-nowrap ${
+                      className={`absolute left-1/2 top-0 z-20 -translate-x-1/2 rounded-full px-4 py-2 font-heading font-bold uppercase tracking-[0.14em] text-[10px] shadow-lg whitespace-nowrap sm:px-6 sm:py-2.5 sm:text-[11px] ${
                         plan.popular
                           ? "bg-[#e84693] text-white"
                           : plan.isTelegram
@@ -443,7 +443,7 @@ const PricingSection = () => {
                   )}
 
                   <article
-                    className={`relative h-full overflow-hidden rounded-[32px] border shadow-2xl ${
+                    className={`relative h-full overflow-hidden rounded-[24px] border shadow-2xl sm:rounded-[32px] ${
                       plan.card
                     } ${
                       plan.popular
@@ -460,13 +460,13 @@ const PricingSection = () => {
                     <div
                       className={`flex h-full flex-col ${
                         plan.isTelegram
-                          ? "p-5 pt-8 lg:p-8 lg:pt-12"
-                          : "p-6 pt-10 sm:p-8 sm:pt-12"
+                          ? "p-4 pt-7 sm:p-5 sm:pt-8 lg:p-8 lg:pt-12"
+                          : "p-5 pt-8 sm:p-8 sm:pt-12"
                       }`}
                     >
-                      <div className={plan.isTelegram ? "mb-5 lg:mb-6" : "mb-6"}>
+                      <div className={plan.isTelegram ? "mb-3 sm:mb-5 lg:mb-6" : "mb-5 sm:mb-6"}>
                         <p
-                          className={`font-heading font-bold uppercase tracking-[0.14em] text-xs mb-3 ${
+                          className={`font-heading font-bold uppercase tracking-[0.14em] text-[10px] mb-2 sm:text-xs sm:mb-3 ${
                             plan.isTelegram ? "text-white/70" : "text-primary/55"
                           }`}
                         >
@@ -476,7 +476,7 @@ const PricingSection = () => {
                         <h3
                           className={`heading-hero leading-[0.95] mb-3 ${
                             plan.isTelegram
-                              ? "text-[2rem] lg:text-4xl"
+                              ? "text-[1.8rem] sm:text-[2rem] lg:text-4xl"
                               : "text-3xl sm:text-4xl"
                           }`}
                         >
@@ -506,12 +506,12 @@ const PricingSection = () => {
                         )}
                       </div>
 
-                      <div className={plan.isTelegram ? "mb-5 lg:mb-6" : "mb-6"}>
+                      <div className={plan.isTelegram ? "mb-3 sm:mb-5 lg:mb-6" : "mb-5 sm:mb-6"}>
                         <div className="flex items-end gap-2">
                           <span
                             className={`heading-hero ${
                               plan.isTelegram
-                                ? "text-5xl lg:text-6xl"
+                                ? "text-[2.75rem] sm:text-5xl lg:text-6xl"
                                 : "text-5xl sm:text-6xl"
                             }`}
                           >
@@ -519,7 +519,7 @@ const PricingSection = () => {
                           </span>
 
                           <span
-                            className={`pb-2 text-sm ${
+                            className={`pb-2 text-xs sm:text-sm ${
                               plan.isTelegram ? "text-white/75" : "text-primary/55"
                             }`}
                           >
@@ -531,8 +531,8 @@ const PricingSection = () => {
                       <ul
                         className={`flex-1 ${
                           plan.isTelegram
-                            ? "mb-5 space-y-2.5 lg:mb-8 lg:space-y-3"
-                            : "mb-8 space-y-3"
+                            ? "mb-3 space-y-2 sm:mb-5 sm:space-y-2.5 lg:mb-8 lg:space-y-3"
+                            : "mb-6 space-y-2.5 sm:mb-8 sm:space-y-3"
                         }`}
                       >
                         {plan.features.map((feature, featureIndex) => {
@@ -544,10 +544,10 @@ const PricingSection = () => {
                           return (
                             <li
                               key={feature}
-                              className="flex gap-3 items-start"
+                              className="flex gap-2.5 items-start sm:gap-3"
                             >
                               <div
-                                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                                className={`mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full sm:h-5 sm:w-5 ${
                                   isFeatured
                                     ? "bg-primary text-primary-foreground"
                                     : isPinkFeature
@@ -558,16 +558,16 @@ const PricingSection = () => {
                                 }`}
                               >
                                 {isFeatured ? (
-                                  <Star className="h-3.5 w-3.5 fill-current" />
+                                  <Star className="h-3 w-3 fill-current sm:h-3.5 sm:w-3.5" />
                                 ) : (
-                                  <Check className="h-3.5 w-3.5" />
+                                  <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                                 )}
                               </div>
 
                               <span
                                 className={`leading-snug ${
                                   plan.isTelegram
-                                    ? "text-[15px] text-white/90 lg:text-base"
+                                    ? "text-[13.5px] text-white/90 sm:text-[15px] lg:text-base"
                                     : isPinkFeature
                                     ? "font-heading font-bold text-[#e84693]"
                                     : "text-primary/80"
@@ -581,7 +581,7 @@ const PricingSection = () => {
                       </ul>
 
                       <div
-                        className={`rounded-2xl px-4 py-3 mb-6 ${
+                        className={`rounded-xl px-3 py-2 mb-3 sm:rounded-2xl sm:px-4 sm:py-3 sm:mb-6 ${
                           plan.isTelegram
                             ? "bg-white/15"
                             : plan.popular
@@ -606,8 +606,8 @@ const PricingSection = () => {
                         href={plan.href}
                         target="_blank"
                         rel="noreferrer"
-                        className={`group mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-6 font-heading font-bold uppercase tracking-[0.14em] text-sm transition-transform duration-300 hover:scale-[1.02] ${
-                          plan.isTelegram ? "h-[48px] lg:h-[52px]" : "h-[52px]"
+                        className={`group mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-4 font-heading font-bold uppercase tracking-[0.14em] text-xs transition-transform duration-300 hover:scale-[1.02] sm:px-6 sm:text-sm ${
+                          plan.isTelegram ? "h-[44px] sm:h-[48px] lg:h-[52px]" : "h-[48px] sm:h-[52px]"
                         } ${plan.button}`}
                       >
                         {plan.isTelegram && (
