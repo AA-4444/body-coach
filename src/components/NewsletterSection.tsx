@@ -19,7 +19,7 @@ const NewsletterSection = () => {
           delay={120}
           className="text-muted-foreground max-w-2xl mx-auto mb-8 text-base lg:text-lg leading-relaxed"
         >
-          Разбираем цели, оцениваем состояние тела, намечаем стратегию — без
+          Разбираем цели, оцениваем состояние тела, намечаем стратегию - без
           обязательств.
         </Reveal>
 

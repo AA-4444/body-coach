@@ -27,7 +27,7 @@ const plans = [
     name: "Pro",
     price: "£7.50",
     period: "per month (billed yearly)",
-    description: "Our most popular plan — best value for committed transformations",
+    description: "Our most popular plan - best value for committed transformations",
     features: [
       "Everything in Starter",
       "Personalised meal plans",

@@ -10,21 +10,21 @@ const HeroSection = () => {
         {/* Desktop image */}
         <img
           src={heroImage}
-          alt="Виктория Примасюк — эксперт по трансформации тела"
+          alt="Виктория Примасюк - эксперт по трансформации тела"
           className="absolute inset-0 z-0 w-full h-full object-cover hidden sm:block"
         />
 
         {/* Mobile image */}
         <img
           src={mobileHeroImage}
-          alt="Виктория Примасюк — эксперт по трансформации тела"
+          alt="Виктория Примасюк - эксперт по трансформации тела"
           className="absolute inset-0 z-0 w-full h-full object-cover block sm:hidden"
         />
 
         {/* Light dark overlay for better text readability */}
         <div className="absolute inset-0 z-[1] bg-black/35" />
 
-        {/* Decorative strokes — under the text */}
+        {/* Decorative strokes - under the text */}
         <svg
           className="absolute inset-0 z-[2] h-full w-full pointer-events-none opacity-45 sm:opacity-70"
           viewBox="0 0 1400 800"
