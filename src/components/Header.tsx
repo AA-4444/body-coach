@@ -77,7 +77,8 @@ const Header = () => {
               </div>
 
               <Link
-                to="/support"
+                to="/#pricing"
+                onClick={() => scrollToHash("#pricing")}
                 className="inline-flex items-center justify-center rounded-full bg-[#1368de] px-8 py-4 font-heading text-[0.98rem] font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-[#0d57c6] hover:shadow-lg xl:text-[1.02rem] whitespace-nowrap"
               >
                 ЗАПИСАТЬСЯ
@@ -263,8 +264,11 @@ const Header = () => {
                     </p>
 
                     <Link
-                      to="/support"
-                      onClick={() => setMobileOpen(false)}
+                      to="/#pricing"
+                      onClick={() => {
+                        scrollToHash("#pricing");
+                        setMobileOpen(false);
+                      }}
                       className="btn-lime mt-1 inline-flex items-center justify-center"
                     >
                       ЗАПИСАТЬСЯ
