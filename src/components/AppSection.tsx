@@ -1,31 +1,41 @@
 import { Reveal } from "@/components/Reveal";
 import { Check, Award, Star } from "lucide-react";
 
-import workoutImg from "@/assets/workout-tablet.jpg";
-import mealImg from "@/assets/trainer-lunges.jpg";
-import trainerImg from "@/assets/trainer-lunges.jpg";
-import workoutCaseImg from "@/assets/workout.jpg";
-import workoutCaseImg1 from "@/assets/workout1.jpg";
 import telegramLogo from "@/assets/telegram-logo.png";
 
 const formLink = "https://forms.gle/9ToVmFWRx9kcAkMi6";
 const tributeLink = "https://t.me/tribute/app?startapp=sWlo";
 
+const appImage = (name: string) => `/images/app-section/${name}`;
+
+const trainerImage = {
+  src: appImage("trainer-lunges-960.jpg"),
+  srcSet: [
+    `${appImage("trainer-lunges-640.jpg")} 640w`,
+    `${appImage("trainer-lunges-960.jpg")} 960w`,
+    `${appImage("trainer-lunges-1280.jpg")} 1280w`,
+  ].join(", "),
+};
+
 const resultItems = [
   {
-    img: workoutImg,
+    img: appImage("workout-tablet-800.jpg"),
+    srcSet: `${appImage("workout-tablet-480.jpg")} 480w, ${appImage("workout-tablet-800.jpg")} 800w`,
     t: "Тело становится сильным и функциональным",
   },
   {
-    img: workoutCaseImg,
+    img: appImage("workout-800.jpg"),
+    srcSet: `${appImage("workout-480.jpg")} 480w, ${appImage("workout-800.jpg")} 800w`,
     t: "Исчезают хронические зажимы и перегрузки",
   },
   {
-    img: workoutCaseImg1,
+    img: appImage("workout1-800.jpg"),
+    srcSet: `${appImage("workout1-480.jpg")} 480w, ${appImage("workout1-800.jpg")} 800w`,
     t: "Улучшается качество движения и контроль",
   },
   {
-    img: mealImg,
+    img: appImage("trainer-lunges-result-800.jpg"),
+    srcSet: `${appImage("trainer-lunges-result-480.jpg")} 480w, ${appImage("trainer-lunges-result-800.jpg")} 800w`,
     t: "Формируется визуально выверенная, «дорогая» форма",
   },
 ];
@@ -181,11 +191,15 @@ const AppSection = () => {
             <Reveal className="order-1 lg:order-2 flex justify-center">
               <div className="w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[560px] xl:max-w-[620px] aspect-square rounded-[32px] overflow-hidden bg-white/10 shadow-2xl">
                 <img
-                  src={trainerImg}
+                  src={trainerImage.src}
+                  srcSet={trainerImage.srcSet}
+                  sizes="(min-width: 1280px) 620px, (min-width: 1024px) 560px, (min-width: 640px) 440px, calc(100vw - 40px)"
                   alt="Виктория Примасюк"
                   className="w-full h-full object-cover block"
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
+                  width={960}
+                  height={640}
                   draggable={false}
                 />
               </div>
@@ -359,10 +373,14 @@ const AppSection = () => {
               >
                 <img
                   src={it.img}
+                  srcSet={it.srcSet}
+                  sizes="(min-width: 1024px) 25vw, 50vw"
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
+                  width={800}
+                  height={1067}
                   draggable={false}
                 />
 
